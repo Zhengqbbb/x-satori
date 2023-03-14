@@ -1,0 +1,38 @@
+# shellcheck shell=sh disable=SC1091,SC2034,SC3043 #xsh
+
+# Section: Arg
+x log init release
+WORK_DIR="$(x wsroot)"
+
+# Section: Main
+release_main() {
+    if pnpm lint && pnpm test; then
+        pnpm bumpp                                      \
+            package.json                                \
+            --commit "build: :bookmark: publish v%s"    \
+            --all --tag --push --yes    || return 1
+        pnpm -r publish --force         || return 1
+        release:info release successfully
+    else
+        release:error release failed
+        return 1
+    fi
+}
+
+# shellcheck disable=SC2154
+deploy_brew() {
+    param:dsl       '
+options:
+    --version|-v    "input version (e.g 1.3.9)"            <>
+'
+    param:run
+    [ -n "$(command -v brew)" ] || return 1
+    cd "$(brew --repository)"   || return 1
+    brew bump-formula-pr --url "https://registry.npmjs.org/czg/-/czg-${version}.tgz" czg
+}
+
+case "${1}" in
+    main)     shift;  release_main "$@"   ;;
+    brew)             release_brew        ;;
+    *)                release_main        ;;
+esac

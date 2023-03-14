@@ -1,0 +1,3 @@
+# shellcheck shell=sh disable=SC1091,SC2034,SC3043 #xsh
+
+x npx -y taze -r -I -i

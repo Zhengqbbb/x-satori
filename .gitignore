@@ -1,0 +1,23 @@
+node_modules
+.env
+*.log
+
+# Bundle
+bin
+dist
+
+# Docs
+docs/.vitepress/cache
+urls.txt
+
+# Mac OS
+.DS_Store
+
+# Typescript build file
+*.tsbuildinfo
+*.cache
+
+# Typescript test file
+*.test.js
+*.test.d.ts
+*.test.js.map

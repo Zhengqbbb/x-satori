@@ -1,0 +1,16 @@
+{
+  "volar.autoCompleteRefs": true,
+  "files.associations": {
+    "**/.x-cmd/*": "shellscript",
+    "**/.x-cmd/*.yml": "yaml",
+    "*.css": "postcss",
+    "_headers": "properties",
+    "_redirects": "properties"
+  },
+  "files.trimTrailingWhitespace": true,
+  "prettier.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": false
+}
