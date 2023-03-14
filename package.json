@@ -46,7 +46,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.3",
-    "x-satori": "workspace:*",
     "@types/node": "^18.15.3",
     "bumpp": "^9.0.0",
     "cz-git": "^1.6.0",
@@ -63,7 +62,8 @@
     "tsx": "^3.12.5",
     "typescript": "^4.9.5",
     "unbuild": "^1.1.2",
-    "vitest": "^0.29.2"
+    "vitest": "^0.29.2",
+    "x-satori": "workspace:*"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged && pnpm lint"
