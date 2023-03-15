@@ -33,6 +33,13 @@
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*"
+      ]
+    }
+  },
   "bin": {
     "x-satori": "bin/x-satori.mjs"
   },
@@ -40,13 +47,16 @@
     "dist",
     "bin"
   ],
+  "engines": {
+    "node": ">=14"
+  },
   "scripts": {
     "dev": "unbuild --stub",
     "build": "unbuild && cpx src/yoga.wasm dist/shared",
     "start": "x-satori",
     "cz": "czg",
     "lint": "eslint .",
-    "postinstall": "simple-git-hooks && cpx node_modules/yoga-wasm-web/dist/yoga.wasm src",
+    "prepare": "simple-git-hooks && cpx node_modules/yoga-wasm-web/dist/yoga.wasm src",
     "prepack": "npm run build",
     "release": "run-s release:bump release:publish",
     "release:bump": "bumpp -y -c 'build: :bookmark: publish v%s'",

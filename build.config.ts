@@ -18,4 +18,7 @@ export default defineBuildConfig({
       },
     },
   },
+  externals: [
+    'vue',
+  ],
 })

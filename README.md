@@ -1,7 +1,9 @@
-<h1 align="center">X-Satori</h1>
+<h1 align="center">x-satori</h1>
 
 <p align="center">
-  <img alt="version" src="https://img.shields.io/npm/v/x-satori?color=212121&label=">
+  <a href="https://www.npmjs.com/package/x-satori">
+    <img alt="version" src="https://img.shields.io/npm/v/x-satori?color=212121&label=">
+  </a>
 </p>
 
 <pre align="center">Working in Progress</pre>

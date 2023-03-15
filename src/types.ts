@@ -1,6 +1,6 @@
-import type { SatoriOptions } from 'satori'
+import type { SatoriOptions as OriginSatoriOptions } from 'satori'
 
-export type UserConfig = SatoriOptions & {
+export type SatoriOptions = OriginSatoriOptions & {
   /**
    * component props
    */

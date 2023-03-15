@@ -4,7 +4,7 @@ import satori, { init } from 'satori/wasm'
 import { html } from 'satori-html'
 import initYoga from 'yoga-wasm-web'
 import { dirname, resolve } from 'pathe'
-import type { UserConfig } from './types'
+import type { SatoriOptions } from './types'
 
 export async function initEnv() {
   const _dirname = typeof __dirname !== 'undefined'
@@ -12,12 +12,13 @@ export async function initEnv() {
     : dirname(fileURLToPath(import.meta.url))
 
   const yoga = await initYoga(
+    // yoga.wasm from yoga-wasm-web/dist/yoga.wasm
     await readFile((resolve(_dirname, './yoga.wasm'))),
   )
   init(yoga)
 }
 
-export async function genSatoriSVG(opts: UserConfig, renderedHtmlStr: string) {
+export async function genSatoriSVG(opts: SatoriOptions, renderedHtmlStr: string) {
   return await satori(
     html(renderedHtmlStr),
     opts,

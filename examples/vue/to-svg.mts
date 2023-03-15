@@ -1,7 +1,7 @@
-import { genVueSatoriSVG, UserConfig } from 'x-satori/vue'
+import { satoriVue, type SatoriOptions } from 'x-satori/vue'
 import { fileURLToPath } from 'node:url'
 import { readFile, writeFile } from 'node:fs/promises'
-import { dirname, resolve } from 'pathe'
+import { dirname, resolve } from 'path'
 
 (async function () {
   const _dirname = typeof __dirname !== 'undefined'
@@ -10,25 +10,25 @@ import { dirname, resolve } from 'pathe'
   const _output = resolve(_dirname, './image/og.svg')
 
   const templateStr = await readFile(resolve(_dirname, './Template.vue'), 'utf8')
-  const opt: UserConfig = {
+  const opt: SatoriOptions = {
     height: 628,
     width: 1200,
     fonts: [
       {
         name: 'Inter',
-        data: await readFile(resolve(_dirname, './font/Inter-Medium.woff')),
+        data: await readFile(resolve(_dirname, './fonts/Inter-Medium.woff')),
         weight: 400,
         style: 'normal',
       },
       {
         name: 'Inter',
-        data: await readFile(resolve(_dirname, './font/Inter-Bold.woff')),
+        data: await readFile(resolve(_dirname, './fonts/Inter-Bold.woff')),
         weight: 700,
         style: 'normal',
       },
       {
         name: 'Noto Sans Symbols',
-        data: await readFile(resolve(_dirname, './font/NotoSansSymbols2-Regular.ttf')),
+        data: await readFile(resolve(_dirname, './fonts/NotoSansSymbols2-Regular.ttf')),
         weight: 700,
         style: 'normal',
       },
@@ -39,7 +39,7 @@ import { dirname, resolve } from 'pathe'
       site: 'https://qbb.sh'
     }
   }
-  const strSVG = await genVueSatoriSVG(opt, templateStr)
+  const strSVG = await satoriVue(opt, templateStr)
 
   await writeFile(_output, strSVG)
 }()).catch((err: Error) => {

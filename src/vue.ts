@@ -2,7 +2,26 @@ import { parse } from '@vue/compiler-sfc'
 import { createSSRApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import { genSatoriSVG, initEnv } from './core'
-import type { UserConfig } from './types'
+import type { SatoriOptions } from './types'
+
+export { type SatoriOptions }
+
+export async function satoriVue(opts: SatoriOptions, vueTemplateStr: string) {
+  await initEnv()
+
+  const { descriptor } = parse(vueTemplateStr)
+  const renderedHtmlStr = await renderToString(
+    createSSRApp(
+      {
+        props: transformProps(opts.props),
+        template: descriptor.template?.content ?? '',
+      },
+      opts.props,
+    ),
+  )
+
+  return await genSatoriSVG(opts, renderedHtmlStr)
+}
 
 function transformProps(props?: Record<string, any>): Record<string, { type: any }> {
   const result: Record<string, { type: any }> = {}
@@ -25,22 +44,3 @@ function transformProps(props?: Record<string, any>): Record<string, { type: any
   }
   return result
 }
-
-export async function genVueSatoriSVG(opts: UserConfig, vueTemplateStr: string) {
-  await initEnv()
-
-  const { descriptor } = parse(vueTemplateStr)
-  const renderedHtmlStr = await renderToString(
-    createSSRApp(
-      {
-        props: transformProps(opts.props),
-        template: descriptor.template?.content ?? '',
-      },
-      opts.props,
-    ),
-  )
-
-  return await genSatoriSVG(opts, renderedHtmlStr)
-}
-
-export { type UserConfig }
