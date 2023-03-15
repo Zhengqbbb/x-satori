@@ -2,7 +2,7 @@
   "name": "demo-vue",
   "version": "1.0.0",
   "type": "module",
-  "description": "vue SFC file to Open Graph SVG or PNG by satori",
+  "description": "use Vue file to generate Open Graph SVG or PNG by satori",
   "scripts": {
     "to:svg": "tsx to-svg.mts",
     "to:png": "tsx to-png.mts"

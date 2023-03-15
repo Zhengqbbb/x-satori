@@ -2,7 +2,7 @@
   "name": "x-satori",
   "type": "module",
   "version": "0.0.3",
-  "description": "cli stater",
+  "description": "use Vue file to generate Open Graph SVG or PNG by satori",
   "author": "Q.Ben Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb/)",
   "license": "MIT",
   "homepage": "https://github.com/Zhengqbbb/x-satori#readme",
@@ -85,6 +85,7 @@
     "tsx": "^3.12.5",
     "typescript": "^4.9.5",
     "unbuild": "^1.1.2",
+    "vite": "^4.1.4",
     "vue": "^3.2.47",
     "x-satori": "workspace:*"
   },
