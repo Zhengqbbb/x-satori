@@ -15,54 +15,68 @@
     "cli"
   ],
   "exports": {
+    "./*": "./*",
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
+    },
+    "./vue": {
+      "types": "./dist/vue.d.ts",
+      "import": "./dist/vue.mjs"
+    },
+    "./astro": {
+      "types": "./dist/astro.d.ts",
+      "import": "./dist/astro.mjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "bin": {
-    "x-satori": "dist/index.cjs"
+    "x-satori": "bin/x-satori.mjs"
   },
   "files": [
-    "dist"
+    "dist",
+    "bin"
   ],
   "scripts": {
-    "dev": "unbuild --stub && vitest",
-    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "build": "unbuild && cpx src/yoga.wasm dist/shared",
     "start": "x-satori",
     "cz": "czg",
     "lint": "eslint .",
-    "test": "vitest run",
-    "postinstall": "simple-git-hooks",
+    "postinstall": "simple-git-hooks && cpx node_modules/yoga-wasm-web/dist/yoga.wasm src",
     "prepack": "npm run build",
     "release": "run-s release:bump release:publish",
     "release:bump": "bumpp -y -c 'build: :bookmark: publish v%s'",
-    "release:publish": "pnpm publish"
+    "release:publish": "pnpm publish",
+    "demo:vue:svg": "pnpm -C examples/vue to:svg",
+    "demo:vue:png": "pnpm -C examples/vue to:png"
+  },
+  "dependencies": {
+    "@vue/compiler-sfc": "^3.2.47",
+    "satori": "^0.4.2",
+    "satori-html": "^0.3.2",
+    "yoga-wasm-web": "^0.3.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.3",
+    "@rollup/plugin-replace": "^5.0.2",
     "@types/node": "^18.15.3",
     "bumpp": "^9.0.0",
-    "cz-git": "^1.6.0",
+    "cpx2": "^4.2.2",
     "czg": "^1.6.0",
     "eslint": "^8.36.0",
-    "fast-glob": "^3.2.12",
-    "fs-extra": "^11.1.0",
     "lint-staged": "^13.2.0",
     "npm-run-all": "^4.1.5",
     "pathe": "^1.1.0",
     "pnpm": "^7.29.1",
-    "rimraf": "^4.4.0",
     "simple-git-hooks": "^2.8.1",
     "tsx": "^3.12.5",
     "typescript": "^4.9.5",
     "unbuild": "^1.1.2",
-    "vitest": "^0.29.2",
+    "vue": "^3.2.47",
     "x-satori": "workspace:*"
   },
   "simple-git-hooks": {

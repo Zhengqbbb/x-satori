@@ -3,12 +3,12 @@ node_modules
 *.log
 
 # Bundle
-bin
 dist
 
 # Docs
 docs/.vitepress/cache
 urls.txt
+examples/*/images/**/*
 
 # Mac OS
 .DS_Store

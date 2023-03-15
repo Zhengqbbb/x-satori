@@ -2,16 +2,20 @@ import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
   entries: [
+    'src/cli',
+    'src/vue',
+    'src/astro',
     'src/index',
   ],
   declaration: true,
   clean: true,
   rollup: {
-    emitCJS: true,
     inlineDependencies: true,
-    esbuild: {
-      minify: true,
-      sourceMap: true,
+    replace: {
+      values: {
+        __VUE_OPTIONS_API__: true,
+        __VUE_PROD_DEVTOOLS__: false,
+      },
     },
   },
 })

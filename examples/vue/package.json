@@ -1,0 +1,17 @@
+{
+  "name": "demo-vue",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "vue SFC file to Open Graph SVG or PNG by satori",
+  "scripts": {
+    "to:svg": "tsx to-svg.mts",
+    "to:png": "tsx to-png.mts"
+  },
+  "dependencies": {
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "tsx": "^3.12.5",
+    "x-satori": "workspace:*"
+  }
+}
