@@ -1,7 +1,7 @@
 {
   "name": "x-satori",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "cli stater",
   "author": "Q.Ben Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb/)",
   "license": "MIT",
