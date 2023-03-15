@@ -7,7 +7,6 @@ importers:
       '@antfu/eslint-config': ^0.35.3
       '@rollup/plugin-replace': ^5.0.2
       '@types/node': ^18.15.3
-      '@vue/compiler-sfc': ^3.2.47
       bumpp: ^9.0.0
       cpx2: ^4.2.2
       czg: ^1.6.0
@@ -26,7 +25,6 @@ importers:
       x-satori: workspace:*
       yoga-wasm-web: ^0.3.3
     dependencies:
-      '@vue/compiler-sfc': 3.2.47
       satori: 0.4.2
       satori-html: 0.3.2
       yoga-wasm-web: 0.3.3

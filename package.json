@@ -65,7 +65,6 @@
     "demo:vue:png": "pnpm -C examples/vue to:png"
   },
   "dependencies": {
-    "@vue/compiler-sfc": "^3.2.47",
     "satori": "^0.4.2",
     "satori-html": "^0.3.2",
     "yoga-wasm-web": "^0.3.3"

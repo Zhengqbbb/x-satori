@@ -10,6 +10,9 @@ insert_final_newline = true
 indent_size = 4
 tab_width = 4
 
+[examples/**/*.mts]
+indent_size = 4
+
 [*.sh]
 indent_size = 4
 tab_width = 4
