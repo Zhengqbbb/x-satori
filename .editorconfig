@@ -2,16 +2,21 @@ root = true
 
 [*]
 charset = utf-8
-indent_size = 2
+indent_size = 4
 end_of_line = lf
 insert_final_newline = true
+
+[*.vue]
+indent_size = 2
+tab_width = 2
+
+[*.json]
+indent_size = 2
+tab_width = 2
 
 [.x-cmd/**]
 indent_size = 4
 tab_width = 4
-
-[examples/**/*.mts]
-indent_size = 4
 
 [*.sh]
 indent_size = 4

@@ -1,22 +1,22 @@
 {
-  "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@1.6.0/docs/public/schema/cz-git.json",
-  "path": "node_modules/cz-git",
-  "scopes": [
-    "vue",
-    "astro",
-    "core",
-    "cli",
-    "example",
-    "playground",
-    "script"
-  ],
-  "alias": {
-    "f": "docs: fix typos",
-    "r": "docs: update README",
-    "b": "chore: bump dependencies",
-    "s": "style: update code format",
-    "i": "feat: initial commit",
-    "c": "chore: update config"
-  },
-  "customScopesAlign": "top"
+    "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@1.6.0/docs/public/schema/cz-git.json",
+    "path": "node_modules/cz-git",
+    "scopes": [
+        "vue",
+        "astro",
+        "core",
+        "cli",
+        "example",
+        "playground",
+        "script"
+    ],
+    "alias": {
+        "f": "docs: fix typos",
+        "r": "docs: update README",
+        "b": "chore: bump dependencies",
+        "s": "style: update code format",
+        "i": "feat: initial commit",
+        "c": "chore: update config"
+    },
+    "customScopesAlign": "top"
 }

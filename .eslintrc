@@ -4,6 +4,8 @@
     "@typescript-eslint/ban-ts-comment": "off",
     "no-new": "off",
     "no-console": "off",
-    "import/export": "off"
+    "import/export": "off",
+    "indent": ["error", 4],
+    "@typescript-eslint/indent": ["error", 4]
   }
 }

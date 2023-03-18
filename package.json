@@ -24,10 +24,6 @@
       "types": "./dist/vue.d.ts",
       "import": "./dist/vue.mjs"
     },
-    "./astro": {
-      "types": "./dist/astro.d.ts",
-      "import": "./dist/astro.mjs"
-    },
     "./package.json": "./package.json"
   },
   "main": "./dist/index.mjs",
