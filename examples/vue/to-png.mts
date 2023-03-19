@@ -52,6 +52,6 @@ import { dirname, resolve } from 'path'
   	return await writeFile(_OUTPUT, render.asPng())
 
 }()).catch((err: Error) => {
-  console.error(err)
-  process.exit(1)
+  	console.error(err)
+  	process.exit(1)
 })

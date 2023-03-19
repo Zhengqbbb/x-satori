@@ -2,7 +2,7 @@
   "name": "x-satori",
   "type": "module",
   "version": "0.0.3",
-  "description": "use Vue file to generate Open Graph SVG or PNG by satori",
+  "description": "use Vue files to generate SVG images using Satori",
   "author": "Q.Ben Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb/)",
   "license": "MIT",
   "homepage": "https://github.com/Zhengqbbb/x-satori#readme",
@@ -12,6 +12,9 @@
   },
   "bugs": "https://github.com/Zhengqbbb/x-satori/issues",
   "keywords": [
+    "satori",
+    "vue-satori",
+    "v-satori",
     "cli"
   ],
   "exports": {
@@ -47,9 +50,9 @@
     "node": ">=14"
   },
   "scripts": {
+    "x": "x-satori",
     "dev": "unbuild --stub",
-    "build": "unbuild && cpx src/yoga.wasm dist/shared",
-    "start": "x-satori",
+    "build": "unbuild && cpx src/yoga.wasm dist",
     "cz": "czg",
     "lint": "eslint .",
     "prepare": "simple-git-hooks && cpx node_modules/yoga-wasm-web/dist/yoga.wasm src",
@@ -61,13 +64,20 @@
     "demo:vue:png": "pnpm -C examples/vue to:png"
   },
   "dependencies": {
-    "satori": "^0.4.2",
+    "@esbuild-kit/cjs-loader": "^2.4.2",
+    "@esbuild-kit/esm-loader": "^2.5.5",
+    "express": "^4.18.2",
+    "minimist": "^1.2.8",
+    "satori": "^0.4.3",
     "satori-html": "^0.3.2",
     "yoga-wasm-web": "^0.3.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.3",
     "@rollup/plugin-replace": "^5.0.2",
+    "@types/express": "^4.17.17",
+    "@types/express-serve-static-core": "^4.17.17",
+    "@types/minimist": "^1.2.2",
     "@types/node": "^18.15.3",
     "bumpp": "^9.0.0",
     "cpx2": "^4.2.2",
@@ -76,12 +86,12 @@
     "lint-staged": "^13.2.0",
     "npm-run-all": "^4.1.5",
     "pathe": "^1.1.0",
-    "pnpm": "^7.29.1",
+    "pnpm": "^7.29.3",
     "simple-git-hooks": "^2.8.1",
     "tsx": "^3.12.5",
-    "typescript": "^4.9.5",
+    "typescript": "^5.0.2",
     "unbuild": "^1.1.2",
-    "vite": "^4.1.4",
+    "vite": "^4.2.0",
     "vue": "^3.2.47",
     "x-satori": "workspace:*"
   },

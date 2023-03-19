@@ -5,6 +5,7 @@ import { genSatoriSVG, initEnv } from './core'
 import type { SatoriOptions } from './types'
 
 export { type SatoriOptions }
+export { defineSatoriConfig } from './'
 
 export async function satoriVue(opts: SatoriOptions, vueTemplateStr: string) {
     await initEnv()
