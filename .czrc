@@ -16,7 +16,8 @@
         "b": "chore: bump dependencies",
         "s": "style: update code format",
         "i": "feat: initial commit",
-        "c": "chore: update config"
+        "c": "chore: update config",
+        "p": "chore(playground): update config and usage"
     },
     "customScopesAlign": "top"
 }
