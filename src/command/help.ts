@@ -12,7 +12,7 @@ export const generateHelp = (version: string, code = 0) => {
   ${style.yellow('VERSION:')} ${version}
 
   ${style.yellow('SYNOPSIS:')}
-      x-satori [--dev] <--template <vue_file_path> --config <satori_config_path>> [ -o <path>]
+      x-satori --template <vue_file_path> --config <satori_config_path> [ --output <path> | --dev ]
 
   ${style.yellow('OPTIONS:')}
       ${style.cyan('-d|--dev')}                   ${style.red('Turn on Dev mode')}
