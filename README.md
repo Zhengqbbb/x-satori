@@ -24,7 +24,7 @@ npm install -D x-satori
 <details>
 <summary>Using CLI</summary><br>
 
-- Dependence: **Vue | Vite**
+- Dependency: **Vue | Vite**
 
 ```sh
 $ npx x-satori --help
@@ -87,7 +87,7 @@ Example: [`playground/`](./playground/)
 <details>
 <summary>Using ESM script</summary><br>
 
-- Dependence: **Vue**
+- Dependency: **Vue**
 
 ```mjs
 import { defineSatoriConfig, satoriVue } from 'x-satori/vue'
