@@ -1,0 +1,22 @@
+{
+  "name": "playground-x-satori",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "use Vue file to generate Open Graph SVG or PNG by satori. Run script or use CLI",
+  "scripts": {
+    "cli:dev:": "  x-satori -t ./playground/Template.vue -c ./playground/config.ts --dev",
+    "cli:build:": "x-satori -t ./playground/Template.vue -c ./playground/config.ts -o image.svg",
+    "gen:svg": "tsx gen-svg.mts",
+    "gen:png": "tsx gen-png.mts"
+  },
+  "dependencies": {
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.4.1",
+    "@types/node": "^18.15.3",
+    "tsx": "^3.12.5",
+    "vite": "^4.2.0",
+    "x-satori": "0.0.4"
+  }
+}

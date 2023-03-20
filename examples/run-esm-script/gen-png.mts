@@ -1,14 +1,14 @@
-import { satoriVue, type SatoriOptions } from 'x-satori/vue'
 import { fileURLToPath } from 'node:url'
 import { readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'path'
+import { renderAsync } from '@resvg/resvg-js'
+import { type SatoriOptions, satoriVue } from 'x-satori/vue'
 
-(async function() {
-
+(async function () {
     const _DIRNAME = typeof __dirname !== 'undefined'
         ? __dirname
         : dirname(fileURLToPath(import.meta.url))
-    const _OUTPUT = resolve(_DIRNAME, './image/og.svg')
+    const _OUTPUT = resolve(_DIRNAME, './image/og.png')
 
     const templateStr = await readFile(resolve(_DIRNAME, './Template.vue'), 'utf8')
     const opt: SatoriOptions = {
@@ -37,13 +37,18 @@ import { dirname, resolve } from 'path'
         props: {
             title: 'hello world',
             desc: 'examples',
-            site: 'https://qbb.sh'
-        }
+            site: 'https://qbb.sh',
+        },
     }
     const strSVG = await satoriVue(opt, templateStr)
 
-    await writeFile(_OUTPUT, strSVG)
-
+    const render = await renderAsync(strSVG, {
+        fitTo: {
+            mode: 'width',
+            value: 1200,
+        },
+    })
+    return await writeFile(_OUTPUT, render.asPng())
 }()).catch((err: Error) => {
     console.error(err)
     process.exit(1)

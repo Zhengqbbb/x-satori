@@ -1,15 +1,16 @@
 import { fileURLToPath } from 'node:url'
-import { readFile } from 'node:fs/promises'
+import { readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'path'
-import { satoriVue } from 'x-satori/vue'
+import { type SatoriOptions, satoriVue } from 'x-satori/vue'
 
-export async function gen() {
+(async function () {
     const _DIRNAME = typeof __dirname !== 'undefined'
         ? __dirname
         : dirname(fileURLToPath(import.meta.url))
+    const _OUTPUT = resolve(_DIRNAME, './image/og.svg')
 
     const templateStr = await readFile(resolve(_DIRNAME, './Template.vue'), 'utf8')
-    const opt = {
+    const opt: SatoriOptions = {
         height: 628,
         width: 1200,
         fonts: [
@@ -33,11 +34,15 @@ export async function gen() {
             },
         ],
         props: {
-            title: 'hello nice',
-            desc: 'example',
+            title: 'hello world',
+            desc: 'examples',
             site: 'https://qbb.sh',
         },
     }
     const strSVG = await satoriVue(opt, templateStr)
-    return strSVG
-}
+
+    await writeFile(_OUTPUT, strSVG)
+}()).catch((err: Error) => {
+    console.error(err)
+    process.exit(1)
+})

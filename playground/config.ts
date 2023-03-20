@@ -31,8 +31,7 @@ export default defineSatoriConfig({
         },
     ],
     props: {
-        title: 'hello nice',
-        desc: 'example',
+        title: 'Hello World',
         site: 'https://qbb.sh',
     },
 })

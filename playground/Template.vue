@@ -4,8 +4,8 @@ defineProps<{ title: string; desc: string; site: string }>()
 
 <template>
   <div
-    style="background-image: linear-gradient(120deg, rgb(27, 26, 28), rgb(6, 6, 7) 30%, rgb(25, 95, 60) 70%, rgb(16, 15, 16));color: #ffffff;"
-    tw="w-full h-full text-1.4rem flex flex-col items-center justify-between px-2rem py-2rem"
+    style="background-image: linear-gradient(135deg, rgb(30, 30, 30), rgb(6, 6, 7) 20%, rgb(25, 95, 60) 70%, rgb(20, 20, 20));"
+    tw="w-full h-full text-1.4rem text-white flex flex-col items-center justify-between px-2rem py-2rem"
   >
     <div tw="flex w-full">
       <svg height="72" viewBox="0 0 24 24">
@@ -15,7 +15,7 @@ defineProps<{ title: string; desc: string; site: string }>()
     <div tw="w-full flex relative mt--20 px-30 flex-col justify-center items-center">
       <div tw="text-4rem font-bold" style="white-space: pre-wrap;" v-html="title" />
       <div tw="text-2.4rem text-neutral-200" style="white-space: pre-wrap;">
-        This is a example
+        description
       </div>
     </div>
     <div tw="w-full flex items-center justify-end">

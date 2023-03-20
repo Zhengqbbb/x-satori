@@ -1,11 +1,11 @@
 {
   "name": "demo-vue",
-  "version": "1.0.0",
   "type": "module",
+  "version": "1.0.0",
   "description": "use Vue file to generate Open Graph SVG or PNG by satori",
   "scripts": {
-    "to:svg": "tsx to-svg.mts",
-    "to:png": "tsx to-png.mts"
+    "gen:svg": "tsx gen-svg.mts",
+    "gen:png": "tsx gen-png.mts"
   },
   "dependencies": {
     "vue": "^3.2.47"
