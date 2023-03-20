@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-    <video src='https://user-images.githubusercontent.com/40693636/226344621-d2880566-0634-4848-b2e2-d04daecdc782.mp4' width=800/>
+    <video src="https://user-images.githubusercontent.com/40693636/226353532-1d6fa4b7-02e9-4a30-8dde-f0f8e3dd9fe0.mp4"/>
 </p>
 
 ## LICENSE
