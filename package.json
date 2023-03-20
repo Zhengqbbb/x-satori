@@ -60,8 +60,10 @@
     "release": "run-s release:bump release:publish",
     "release:bump": "bumpp -y -c 'build: :bookmark: publish v%s'",
     "release:publish": "pnpm publish",
-    "demo:vue:svg": "pnpm -C examples/vue to:svg",
-    "demo:vue:png": "pnpm -C examples/vue to:png"
+    "demo:dev": "pnpm -C playground dev",
+    "demo:build": "pnpm -C playground build",
+    "gen:svg": "pnpm -C examples/run-esm-script gen:svg",
+    "gen:png": "pnpm -C examples/run-esm-script gen:png"
   },
   "dependencies": {
     "express": "^4.18.2",

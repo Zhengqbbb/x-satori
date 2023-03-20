@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "description": "use Vue file to generate Open Graph SVG or PNG by satori. Run script or use CLI",
   "scripts": {
-    "cli:dev:": "  x-satori -t ./playground/Template.vue -c ./playground/config.ts --dev",
-    "cli:build:": "x-satori -t ./playground/Template.vue -c ./playground/config.ts -o image.svg",
+    "dev": "  x-satori -t ./Template.vue -c ./config.ts --dev",
+    "build": "x-satori -t ./Template.vue -c ./config.ts -o image.svg",
     "gen:svg": "tsx gen-svg.mts",
     "gen:png": "tsx gen-png.mts"
   },
