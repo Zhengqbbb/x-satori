@@ -72,23 +72,6 @@ importers:
       tsx: 3.12.5
       x-satori: link:../..
 
-  playground:
-    specifiers:
-      '@resvg/resvg-js': ^2.4.1
-      '@types/node': ^18.15.3
-      tsx: ^3.12.5
-      vite: ^4.2.0
-      vue: ^3.2.47
-      x-satori: 0.0.4
-    dependencies:
-      vue: 3.2.47
-    devDependencies:
-      '@resvg/resvg-js': 2.4.1
-      '@types/node': 18.15.3
-      tsx: 3.12.5
-      vite: 4.2.0_@types+node@18.15.3
-      x-satori: link:..
-
 packages:
 
   /@ampproject/remapping/2.2.0:

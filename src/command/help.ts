@@ -21,7 +21,7 @@ export const generateHelp = (version: string, code = 0) => {
       ${style.cyan('-o|--output   <path>')}       ${style.red('Target output SVG path')}
 
   ${style.yellow('EXAMPLES:')}
-      ${style.cyan('x-satori --dev --config "./satori.js" --template "./Template.vue"')}
+      ${style.cyan('x-satori --config "./satori.js" --template "./Template.vue" --dev')}
       ${style.cyan('x-satori --config "./satori.js" --template "./Template.vue"')}
       ${style.cyan('x-satori --config "./satori.js" --template "./Template.vue" -o image.svg')}
 `)

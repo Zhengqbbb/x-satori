@@ -79,16 +79,16 @@ const BASE_DOM = `
 </html>
 `
 
-export function startDevServe(tempP: string, cfgP: string, port = 5173) {
+export function startDevServe(tempP: string, cfgP: string, port = 5175) {
     const { tempPath, configPath } = getPathOpts(tempP, cfgP)
-    createServer(undefined, undefined, tempPath, configPath).then(({ app }) =>
+    createServer(undefined, port + 1, tempPath, configPath).then(({ app }) =>
         app.listen(port, () => {
             log('I', `http://localhost:${port}`)
         }),
     )
 }
 
-export async function createServer(root = process.cwd(), hmrPort = 5043, tempPath: string, configPath: string) {
+export async function createServer(root = process.cwd(), hmrPort = 5275, tempPath: string, configPath: string) {
     const app = express()
 
     const vite: ViteDevServer = await (

@@ -7,7 +7,7 @@ import { satoriVue } from 'x-satori/vue'
     const _DIRNAME = typeof __dirname !== 'undefined'
         ? __dirname
         : dirname(fileURLToPath(import.meta.url))
-    const _OUTPUT = resolve(_DIRNAME, './image/og.svg')
+    const _OUTPUT = resolve(_DIRNAME, './og.svg')
 
     const templateStr = await readFile(resolve(_DIRNAME, './Template.vue'), 'utf8')
     const satoriConfig = (await import('./config')).default
