@@ -15,7 +15,26 @@
     <video src="https://user-images.githubusercontent.com/40693636/226353532-1d6fa4b7-02e9-4a30-8dde-f0f8e3dd9fe0.mp4"/>
 </p>
 
-## Getting Started
+> Local running example demo
+
+```sh
+npx degit Zhengqbbb/x-satori/playground <file_name>
+
+cd <file_name>
+pnpm install
+
+# Development Model
+pnpm dev
+
+# [Generate] SVG
+pnpm build
+# or `pnpm gen:svg`
+
+# [Generate] PNG
+pnpm gen:png
+```
+
+## Usage
 
 ```sh
 npm install -D x-satori
