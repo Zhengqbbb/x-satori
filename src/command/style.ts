@@ -5,7 +5,7 @@
  * @license MIT
  */
 
-import tty from 'tty'
+import tty from 'node:tty'
 
 /**
  * @description: check current is support color command text

@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url'
 import { readFile, writeFile } from 'node:fs/promises'
-import { dirname, resolve } from 'path'
+import { dirname, resolve } from 'node:path'
 import { satoriVue } from 'x-satori/vue'
 
 (async function () {

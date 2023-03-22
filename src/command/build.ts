@@ -1,4 +1,4 @@
-import { readFile } from 'fs/promises'
+import { readFile } from 'node:fs/promises'
 import { writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
