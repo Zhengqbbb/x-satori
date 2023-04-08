@@ -1,7 +1,7 @@
 {
   "name": "x-satori",
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "packageManager": "pnpm@7.30.0",
   "description": "Use Vue files to generate SVG images using Satori",
   "author": "Q.Ben Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb/)",
