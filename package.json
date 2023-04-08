@@ -2,6 +2,7 @@
   "name": "x-satori",
   "type": "module",
   "version": "0.1.1",
+  "packageManager": "pnpm@7.30.0",
   "description": "Use Vue files to generate SVG images using Satori",
   "author": "Q.Ben Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb/)",
   "license": "MIT",
@@ -68,31 +69,36 @@
   "dependencies": {
     "express": "^4.18.2",
     "minimist": "^1.2.8",
-    "satori": "^0.4.4",
+    "satori": "^0.4.7",
     "satori-html": "^0.3.2",
     "yoga-wasm-web": "^0.3.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.37.0",
+    "@antfu/eslint-config": "^0.38.4",
     "@types/express": "^4.17.17",
-    "@types/express-serve-static-core": "^4.17.17",
+    "@types/express-serve-static-core": "^4.17.33",
     "@types/minimist": "^1.2.2",
-    "@types/node": "^18.15.5",
-    "bumpp": "^9.0.0",
-    "cpx2": "^4.2.2",
-    "czg": "^1.6.0",
-    "eslint": "^8.36.0",
-    "lint-staged": "^13.2.0",
+    "@types/node": "^18.15.11",
+    "bumpp": "^9.1.0",
+    "cpx2": "^4.2.3",
+    "czg": "^1.6.1",
+    "eslint": "^8.38.0",
+    "lint-staged": "^13.2.1",
     "npm-run-all": "^4.1.5",
     "pathe": "^1.1.0",
-    "pnpm": "^7.30.0",
+    "pnpm": "^7.31.0",
     "simple-git-hooks": "^2.8.1",
     "tsx": "^3.12.6",
-    "typescript": "^5.0.2",
-    "unbuild": "^1.1.2",
+    "typescript": "^5.0.4",
+    "unbuild": "^1.2.0",
     "vite": "^4.2.1",
     "vue": "^3.2.47",
     "x-satori": "workspace:*"
+  },
+  "pnpm": {
+    "overrides": {
+      "x-satori": "workspace:*"
+    }
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged && pnpm lint"
