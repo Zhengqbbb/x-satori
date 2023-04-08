@@ -16,7 +16,7 @@ process.stdin.on('data', (key: any) => {
         process.exit(130) // 128 + SIGINT
 })
 
-export const bootsrap = async (argvs = process.argv) => {
+export async function bootsrap(argvs = process.argv) {
     const { version } = await import('../package.json')
     const parsedArgv = minimist<CliOptions>(argvs.slice(2, argvs.length), {
         boolean: true,

@@ -1,6 +1,6 @@
 import { style } from './style'
 
-export const generateHelp = (version: string, code = 0) => {
+export function generateHelp(version: string, code = 0) {
     // prettier-ignore
     console.log(
         `${style.yellow('NAME:')}

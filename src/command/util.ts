@@ -25,7 +25,7 @@ export function log(type: 'I' | 'W' | 'E', msg: string, help?: string) {
     }
 }
 
-export const getPathOpts = (tempP?: string, cfgP?: string) => {
+export function getPathOpts(tempP?: string, cfgP?: string) {
     if (!tempP || !cfgP) {
         log('E', 'Please provide options --template <vue_path> and --config <satori_cfg_path>', '`x-satori --help`')
         console.error(`  template_path: ${tempP}`)

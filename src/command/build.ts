@@ -6,7 +6,7 @@ import type { SatoriOptions } from '../vue'
 import { satoriVue } from '../vue'
 import { getPathOpts, log } from './util'
 
-export const generateSVG = async (tempP?: string, cfgP?: string, out?: string) => {
+export async function generateSVG(tempP?: string, cfgP?: string, out?: string) {
     const { tempPath, configPath } = getPathOpts(tempP, cfgP)
     const temp = await readFile(tempPath, 'utf8')
     const cfgTmp = await (await import('vite')).loadConfigFromFile(
