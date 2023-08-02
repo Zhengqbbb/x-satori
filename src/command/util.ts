@@ -1,4 +1,5 @@
 /* eslint-disable indent */
+import process from 'node:process'
 import { resolve } from 'node:path'
 import { existsSync } from 'node:fs'
 import { createStyle } from './style'

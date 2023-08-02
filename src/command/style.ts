@@ -6,6 +6,7 @@
  */
 
 import tty from 'node:tty'
+import process from 'node:process'
 
 /**
  * @description: check current is support color command text

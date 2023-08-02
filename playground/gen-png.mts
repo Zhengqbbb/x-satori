@@ -21,7 +21,7 @@ import { satoriVue } from 'x-satori/vue'
         },
     })
     return await writeFile(_OUTPUT, render.asPng())
-}()).catch((err: Error) => {
+}()).catch(async (err: Error) => {
     console.error(err)
-    process.exit(1)
+    await import('node:process').then(({ exit }) => exit(1))
 })

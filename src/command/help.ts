@@ -1,3 +1,4 @@
+import process from 'node:process'
 import { style } from './style'
 
 export function generateHelp(version: string, code = 0) {

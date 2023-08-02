@@ -1,4 +1,5 @@
 import { readFile } from 'node:fs/promises'
+import process from 'node:process'
 import express from 'express'
 import type { ViteDevServer } from 'vite'
 import { satoriVue } from '../vue'

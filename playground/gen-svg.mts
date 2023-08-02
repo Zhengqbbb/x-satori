@@ -14,7 +14,7 @@ import { satoriVue } from 'x-satori/vue'
     const strSVG = await satoriVue(satoriConfig, templateStr)
 
     await writeFile(_OUTPUT, strSVG)
-}()).catch((err: Error) => {
+}()).catch(async (err: Error) => {
     console.error(err)
-    process.exit(1)
+    await import('node:process').then(({ exit }) => exit(1))
 })

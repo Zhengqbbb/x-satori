@@ -1,3 +1,4 @@
+import process from 'node:process'
 import minimist from 'minimist'
 import { generateSVG } from './command/build'
 import { startDevServe } from './command/dev'
