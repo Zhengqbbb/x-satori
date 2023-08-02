@@ -14,9 +14,9 @@
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.4.1",
-    "@types/node": "^18.16.13",
+    "@types/node": "^18.17.1",
     "tsx": "^3.12.7",
-    "vite": "^4.3.8",
+    "vite": "^4.4.8",
     "x-satori": "0.1.3"
   }
 }
