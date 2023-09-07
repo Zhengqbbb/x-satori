@@ -69,7 +69,7 @@
   "dependencies": {
     "express": "^4.18.2",
     "minimist": "^1.2.8",
-    "satori": "^0.10.2",
+    "satori": "^0.10.4",
     "satori-html": "^0.3.2",
     "yoga-wasm-web": "^0.3.3"
   },

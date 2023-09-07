@@ -18,8 +18,8 @@ importers:
         specifier: ^1.2.8
         version: 1.2.8
       satori:
-        specifier: ^0.10.2
-        version: 0.10.2
+        specifier: ^0.10.4
+        version: 0.10.4
       satori-html:
         specifier: ^0.3.2
         version: 0.3.2
@@ -2388,7 +2388,7 @@ packages:
     resolution: {integrity: sha512-gozW2blMLJCeFpBwugLTGyvVjNoeo1knonXAcatC6bjPBZitotxdWf7Gimr25N4c0AAOo4eOUfaG82IJPDpqCA==}
     dependencies:
       debug: 3.2.7
-      is-core-module: 2.11.0
+      is-core-module: 2.12.1
       resolve: 1.22.3
     transitivePeerDependencies:
       - supports-color
@@ -4529,8 +4529,8 @@ packages:
       ultrahtml: 1.2.0
     dev: false
 
-  /satori@0.10.2:
-    resolution: {integrity: sha512-38povLat5QMuKiKBudM/oIk+a0Z5tEfHh8oD/bsh58L0jlOXxfuhAVpDtlG3M0g5FGLajIV0LaKQftXtaYoSUQ==}
+  /satori@0.10.4:
+    resolution: {integrity: sha512-GJNIsuiXhiC9kWGLvz04Op5DZy2UFYZAWsuUtkTlQt3r15o0K96PeD+FMfGN4luMPUHc4uV9gXqAoPxOK0omSw==}
     engines: {node: '>=16'}
     dependencies:
       '@shuding/opentype.js': 1.4.0-beta.0

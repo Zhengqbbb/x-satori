@@ -11,10 +11,15 @@
     </a>
 </p>
 
-> [Twitter/post](https://twitter.com/zhengqbbb/status/1637849646075908096)
-
 <p align="center">
-    <video src="https://user-images.githubusercontent.com/40693636/226353532-1d6fa4b7-02e9-4a30-8dde-f0f8e3dd9fe0.mp4"/>
+    <a href="https://youtu.be/8HkJg1a_Zew">
+        <img width="500" align="center" alt="youtube guide demo" src="https://github-production-user-asset-6210df.s3.amazonaws.com/40693636/266208388-990b044f-ff1a-445a-8adb-a28f1fb9fa24.gif">
+    </a>
+    <br>
+    <br>
+    <a href="https://twitter.com/zhengqbbb/status/1637849646075908096">
+        Twitter: post & demo
+    </a>
 </p>
 
 ---
