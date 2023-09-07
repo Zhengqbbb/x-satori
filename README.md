@@ -13,7 +13,7 @@
 
 <p align="center">
     <a href="https://youtu.be/8HkJg1a_Zew">
-        <img width="500" alt="youtube guide demo" src="https://github-production-user-asset-6210df.s3.amazonaws.com/40693636/266208388-990b044f-ff1a-445a-8adb-a28f1fb9fa24.gif">
+        <img width="500" alt="youtube guide demo" src="https://github.com/Zhengqbbb/x-satori/assets/40693636/990b044f-ff1a-445a-8adb-a28f1fb9fa24">
     </a>
     <br>
     <br>
