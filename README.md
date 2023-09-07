@@ -22,8 +22,6 @@
     </a>
 </p>
 
-https://user-images.githubusercontent.com/40693636/2f338932-e729-4dbc-9ab4-47d6dbcd5758
-
 ---
 
 > Local running example demo
