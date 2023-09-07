@@ -13,7 +13,7 @@
 
 <p align="center">
     <a href="https://youtu.be/8HkJg1a_Zew">
-        <img width="500" alt="youtube guide demo" src="https://github.com/Zhengqbbb/x-satori/assets/40693636/990b044f-ff1a-445a-8adb-a28f1fb9fa24">
+        <img width="500" alt="youtube guide demo" src="./demo.gif">
     </a>
     <br>
     <br>
@@ -21,6 +21,8 @@
         Twitter: post & demo
     </a>
 </p>
+
+https://user-images.githubusercontent.com/40693636/2f338932-e729-4dbc-9ab4-47d6dbcd5758
 
 ---
 
