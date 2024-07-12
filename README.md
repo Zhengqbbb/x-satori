@@ -234,7 +234,7 @@ I'm happy that I finally finished this series of experiments and results this we
     </td>
     <td align="center" width="50%">
         <b>Astro</b> ESM script code example:<br>
-        <a href="https://github.com/Zhengqbbb/qbb.sh/blob/v2.1.0/.x-cmd/og/main.ts">qbb.sh@astro/.x-cmd/og/main.ts</a>
+        <a href="https://github.com/Zhengqbbb/qbb.sh/blob/v2.1.1/.x-cmd/og/main.ts">qbb.sh@astro/.x-cmd/og/main.ts</a>
     </td>
   </tr>
 </table>
