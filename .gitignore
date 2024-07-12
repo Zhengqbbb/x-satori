@@ -5,17 +5,13 @@ node_modules
 # Bundle
 dist
 
-# Docs
-docs/.vitepress/cache
-urls.txt
-examples/*/images/**/*
-
 # Mac OS
 .DS_Store
 
 # Typescript build file
 *.tsbuildinfo
 *.cache
+src/.tmp
 
 # Typescript test file
 *.test.js

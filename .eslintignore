@@ -1,7 +1,0 @@
-!.vitepress
-
-node_modules/
-lib/
-dist/
-examples/
-components.d.ts

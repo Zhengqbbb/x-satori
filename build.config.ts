@@ -4,6 +4,7 @@ export default defineBuildConfig({
     entries: [
         'src/cli',
         'src/vue',
+        'src/astro',
         'src/index',
     ],
     declaration: true,
@@ -20,5 +21,7 @@ export default defineBuildConfig({
     externals: [
         'vue',
         'vite',
+        'astro',
+        '@astrojs/compiler',
     ],
 })
