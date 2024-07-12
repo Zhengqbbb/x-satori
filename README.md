@@ -216,7 +216,7 @@ I'm happy that I finally finished this series of experiments and results this we
         <img alt="demo-img-1"src="https://user-images.githubusercontent.com/40693636/226387222-e2de688d-bbb6-41a2-9454-d10d8fd7784d.png">
     </td>
     <td align="center" width="50%">
-        <img alt="demo-img-2"src="https://user-images.githubusercontent.com/40693636/226387730-d639cc13-1bb2-42da-a2f3-3bbce12bb6d4.png">
+        <img alt="demo-img-2"src="https://github.com/user-attachments/assets/537bf3b7-a5b6-4f13-a558-bae051f0a47a">
     </td>
   </tr>
   <tr>
@@ -224,7 +224,7 @@ I'm happy that I finally finished this series of experiments and results this we
         <img alt="demo-img-3"src="https://user-images.githubusercontent.com/40693636/226387837-18ec7fde-b4a1-4248-8bab-6aed67ce8d38.png">
     </td>
     <td align="center" width="50%">
-        <img alt="demo-img-4"src="https://user-images.githubusercontent.com/40693636/226387925-57b58c6a-6677-44d4-a7a0-6939193704b3.png">
+        <img alt="demo-img-4"src="https://github.com/user-attachments/assets/8d56af6b-2b5c-480f-afc3-cc2697c62fd7">
     </td>
   </tr>
   <tr>
