@@ -216,7 +216,7 @@ I'm happy that I finally finished this series of experiments and results this we
         <img alt="demo-img-1"src="https://user-images.githubusercontent.com/40693636/226387222-e2de688d-bbb6-41a2-9454-d10d8fd7784d.png">
     </td>
     <td align="center" width="50%">
-        <img alt="demo-img-2"src="https://github.com/user-attachments/assets/537bf3b7-a5b6-4f13-a558-bae051f0a47a">
+        <img alt="demo-img-2"src="https://cdn.jsdelivr.net/gh/Zhengqbbb/qbb.sh@v2.1.1/public/og/projects.png">
     </td>
   </tr>
   <tr>
@@ -224,16 +224,21 @@ I'm happy that I finally finished this series of experiments and results this we
         <img alt="demo-img-3"src="https://user-images.githubusercontent.com/40693636/226387837-18ec7fde-b4a1-4248-8bab-6aed67ce8d38.png">
     </td>
     <td align="center" width="50%">
-        <img alt="demo-img-4"src="https://github.com/user-attachments/assets/8d56af6b-2b5c-480f-afc3-cc2697c62fd7">
+        <img alt="demo-img-4"src="https://cdn.jsdelivr.net/gh/Zhengqbbb/qbb.sh@v2.1.1/public/og/2022-12-17-new-homepage.png">
     </td>
   </tr>
   <tr>
     <td align="center" width="50%">
-        <b>Vue</b> ESM script code example:<br>
+        <b>Vue</b><br>
+        ESM script code example:
+        <br>
         <a href="https://github.com/Zhengqbbb/qbb.sh/tree/vitesse/build/node/og/main.mts">qbb.sh@vitesse/node/og/main.mts</a>
     </td>
     <td align="center" width="50%">
-        <b>Astro</b> ESM script code example:<br>
+        <b>Astro</b>
+        <br>
+        ESM script code example:
+        <br>
         <a href="https://github.com/Zhengqbbb/qbb.sh/blob/v2.1.1/.x-cmd/og/main.ts">qbb.sh@astro/.x-cmd/og/main.ts</a>
     </td>
   </tr>
