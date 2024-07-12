@@ -12,9 +12,17 @@
     <tr>
         <td align="center" width="50%">
             <b>Vue</b>
+            <br>
+            <a href="https://stackblitz.com/edit/x-satori?file=package.json">
+                <img alt="Open in StackBlitz" src="https://developer.stackblitz.com/img/open_in_stackblitz.svg">
+            </a>
         </td>
         <td align="center" width="50%">
             <b>Astro</b>
+            <br>
+            <a href="https://stackblitz.com/edit/x-satori?file=package.json">
+                <img alt="Open in StackBlitz" src="https://developer.stackblitz.com/img/open_in_stackblitz.svg">
+            </a>
         </td>
     </tr>
     <tr>
@@ -22,7 +30,6 @@
             <a href="https://youtu.be/8HkJg1a_Zew">
                 <img alt="youtube guide demo" src="./demo-vue.gif">
             </a>
-            <br>
             <br>
             <a href="https://x.com/zhengqbbb/status/1637849646075908096">
                 <img alt="View on Twitter post" src="https://cdn.jsdelivr.net/gh/Zhengqbbb/Zhengqbbb@v1.1.1/icons/view-twitter-post.svg">
@@ -33,21 +40,8 @@
                 <img alt="youtube guide demo" src="./demo-vue.gif">
             </a>
             <br>
-            <br>
             <a href="https://x.com/zhengqbbb/status/1637849646075908096">
                 <img alt="View on Twitter post" src="https://cdn.jsdelivr.net/gh/Zhengqbbb/Zhengqbbb@v1.1.1/icons/view-twitter-post.svg">
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td align="center" width="50%">
-            <a href="https://stackblitz.com/edit/x-satori?file=package.json">
-                <img alt="Open in StackBlitz" src="https://developer.stackblitz.com/img/open_in_stackblitz.svg">
-            </a>
-        </td>
-        <td align="center" width="50%">
-            <a href="https://stackblitz.com/edit/x-satori?file=package.json">
-                <img alt="Open in StackBlitz" src="https://developer.stackblitz.com/img/open_in_stackblitz.svg">
             </a>
         </td>
     </tr>
@@ -196,7 +190,7 @@ npm run gen:png
 4. So the key is to **convert the Vue SFC file to an HTML string**, and here I used transform so that I could generate it via script (Only the template syntax is used)
     - `@vue/compiler-sfc`: to parse Vue SFC file
     - `vue - createSSRApp`  and `vue/server-renderer`: transform HTML string
-5. Astro: A Similar Approach:
+5. Astro: a similar method:
     - `@astrojs/compiler`: to transform `.astro` to `ts`
     - `AstroContainer`: renderToString to obtain HTML string
 
