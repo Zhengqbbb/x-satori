@@ -210,12 +210,12 @@ I'm happy that I finally finished this series of experiments and results this we
         <img alt="demo-img-1"src="https://user-images.githubusercontent.com/40693636/226387222-e2de688d-bbb6-41a2-9454-d10d8fd7784d.png">
     </td>
     <td align="center" width="50%">
-        <img alt="demo-img-2"src="https://cdn.jsdelivr.net/gh/Zhengqbbb/qbb.sh@v2.1.1/public/og/projects.png">
+        <img alt="demo-img-2"src="https://cdn.jsdelivr.net/gh/Zhengqbbb/qbb.sh@v2.1.1/public/og/posts.png">
     </td>
   </tr>
   <tr>
     <td align="center" width="50%">
-        <img alt="demo-img-3"src="https://user-images.githubusercontent.com/40693636/226387837-18ec7fde-b4a1-4248-8bab-6aed67ce8d38.png">
+        <img alt="demo-img-3"src="https://user-images.githubusercontent.com/40693636/226387925-57b58c6a-6677-44d4-a7a0-6939193704b3.png">
     </td>
     <td align="center" width="50%">
         <img alt="demo-img-4"src="https://cdn.jsdelivr.net/gh/Zhengqbbb/qbb.sh@v2.1.1/public/og/2022-12-17-new-homepage.png">
