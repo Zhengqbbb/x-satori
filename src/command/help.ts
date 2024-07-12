@@ -25,6 +25,7 @@ ${style.yellow('EXAMPLES:')}
     ${style.cyan('x-satori --config "./satori.js" --template "./Template.vue" --dev')}
     ${style.cyan('x-satori --config "./satori.js" --template "./Template.vue"')}
     ${style.cyan('x-satori --config "./satori.js" --template "./Template.vue" -o image.svg')}
-`)
+`,
+    )
     process.exit(code)
 }

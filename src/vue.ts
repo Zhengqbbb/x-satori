@@ -45,3 +45,5 @@ function transformProps(props?: Record<string, any>): Record<string, { type: any
     }
     return result
 }
+
+export default satoriVue

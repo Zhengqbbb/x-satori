@@ -11,7 +11,7 @@ export interface CliOptions {
 
 export type SatoriOptions = OriginSatoriOptions & {
     /**
-   * component props
-   */
+     * component props
+     */
     props?: Record<string, any>
 }

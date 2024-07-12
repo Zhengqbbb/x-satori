@@ -1,0 +1,21 @@
+---
+interface Props {
+    title: string
+};
+
+const { title } = Astro.props;
+---
+<div
+    style="background-color: #0a0a0a;"
+    class="w-full h-full text-1.4rem text-white flex flex-col items-center justify-between"
+>
+    <h2>
+        {title}
+    </h2>
+    <p>
+        This is a description
+    </p>
+    <p>
+        https://qbb.sh
+    </p>
+</div>

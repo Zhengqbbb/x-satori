@@ -15,20 +15,17 @@ import process from 'node:process'
 export function isColorizenSupport(colorSupoort = true) {
     return (
         colorSupoort
-    && !('NO_COLOR' in process.env)
-    && (
-        process.platform === 'win32'
-      || (tty.isatty(1) && process.env.TERM !== 'dumb')
-      || 'CI' in process.env
+        && !('NO_COLOR' in process.env)
+        && (
+            process.platform === 'win32'
+            || (tty.isatty(1) && process.env.TERM !== 'dumb')
+            || 'CI' in process.env
+        )
     )
-    )
-  || (!process.env.VITEST && 'FORCE_COLOR' in process.env)
+    || (!process.env.VITEST && 'FORCE_COLOR' in process.env)
 }
 
-export function replaceClose(string: string,
-    close: string,
-    replace: any,
-    index: number): string {
+export function replaceClose(string: string, close: string, replace: any, index: number): string {
     const start = string.substring(0, index) + replace
     const end = string.substring(index + close.length)
     const nextIndex = end.indexOf(close)

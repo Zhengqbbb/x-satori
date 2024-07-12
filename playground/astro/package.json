@@ -1,0 +1,21 @@
+{
+  "name": "demo-astro",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "use Astro file to generate Open Graph SVG or PNG by satori. Run script or use CLI",
+  "scripts": {
+    "dev": "  x-satori -t ./Template.astro -c ./config.ts --dev",
+    "build": "x-satori -t ./Template.astro -c ./config.ts -o image.svg",
+    "gen:svg": "tsx gen-svg.mts",
+    "gen:png": "tsx gen-png.mts"
+  },
+  "dependencies": {
+    "astro": "^4.11.5"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/node": "^20.14.10",
+    "tsx": "^4.16.2",
+    "x-satori": "0.1.4"
+  }
+}

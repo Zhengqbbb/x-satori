@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 import process from 'node:process'
 import { resolve } from 'node:path'
 import { existsSync } from 'node:fs'
@@ -38,7 +37,7 @@ export function getPathOpts(tempP?: string, cfgP?: string) {
     const configPath = resolve(cwd, cfgP)
     if (
         !existsSync(tempPath)
-     || !existsSync(configPath)
+        || !existsSync(configPath)
     ) {
         log('E', 'File NOT Found. Please check files exsit')
         console.error(`  template_path: ${tempPath}`)
