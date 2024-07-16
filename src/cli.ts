@@ -20,7 +20,6 @@ process.stdin.on('data', (key: any) => {
 export async function bootsrap(argvs = process.argv) {
     const { version } = await import('../package.json')
     const parsedArgv = minimist<CliOptions>(argvs.slice(2, argvs.length), {
-        boolean: true,
         alias: {
             v: 'version',
             h: 'help',
@@ -32,15 +31,28 @@ export async function bootsrap(argvs = process.argv) {
     })
 
     if (parsedArgv.dev) {
-        startDevServe(parsedArgv?.template, parsedArgv?.config)
+        await startDevServe(
+            parsedArgv?.template,
+            parsedArgv?.config,
+            version,
+            parsedArgv,
+        )
     }
     else {
-        if (parsedArgv.version)
+        if (parsedArgv.version) {
             console.log(version)
-        else if (parsedArgv.help)
+        }
+        else if (parsedArgv.help) {
             generateHelp(version)
-        else
-            await generateSVG(parsedArgv?.template, parsedArgv?.config, parsedArgv.output)
+        }
+        else {
+            await generateSVG(
+                parsedArgv?.template,
+                parsedArgv?.config,
+                parsedArgv,
+                parsedArgv.output,
+            )
+        }
 
         process.exit(0)
     }
