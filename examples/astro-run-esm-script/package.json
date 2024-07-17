@@ -2,6 +2,7 @@
   "name": "demo-astro",
   "type": "module",
   "version": "1.0.0",
+  "private": true,
   "description": "use Astro file to generate Open Graph SVG or PNG by satori",
   "scripts": {
     "gen:svg": "tsx gen-svg.mts",

@@ -97,6 +97,10 @@ export async function createServer(
     const viteServer = await createViteServer({
         root: process.cwd(),
         server: argv,
+        optimizeDeps: {
+            include: [],
+        },
+        logLevel: 'info',
         appType: 'custom',
         plugins: [
             {
@@ -104,6 +108,15 @@ export async function createServer(
                 resolveId(id) {
                     if (id === 'virtual:file')
                         return '\0virtual:file'
+                },
+
+                async load(id) {
+                    if (id === '\0virtual:file') {
+                        const config = await getSatoriConfig(configPath, argv)
+                        const temp = await readFile(tempPath, 'utf8')
+                        const virtual = await satoriSVGParser(config, temp)
+                        return `const virtual = '${virtual}';  export { virtual };`
+                    }
                 },
 
                 async handleHotUpdate({ file, server }) {
@@ -123,15 +136,6 @@ export async function createServer(
                     }
                 },
 
-                async load(id) {
-                    if (id === '\0virtual:file') {
-                        const config = await getSatoriConfig(configPath, argv)
-                        const temp = await readFile(tempPath, 'utf8')
-                        const virtual = await satoriSVGParser(config, temp)
-                        return `const virtual = '${virtual}';  export { virtual };`
-                    }
-                },
-
                 configureServer(server) {
                     server.watcher.add(tempPath)
                     server.watcher.add(configPath)
@@ -140,10 +144,7 @@ export async function createServer(
                         server.middlewares.use(async (req, res, next) => {
                             try {
                                 const url = req.url && cleanUrl(req.url)
-                                if (
-                                    url?.endsWith('.html')
-                                    || url === '/'
-                                ) {
+                                if (url?.endsWith('.html') || url === '/') {
                                     res.statusCode = 200
                                     res.setHeader('Content-Type', 'text/html')
                                     res.setHeader('Cache-Control', 'no-cache')

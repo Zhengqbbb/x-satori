@@ -13,4 +13,5 @@ export async function startDevServe(
     await server.listen(undefined)
     log('I', `v${version}`)
     server.printUrls()
+    return 'DEV_MODE'
 }

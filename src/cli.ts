@@ -31,7 +31,7 @@ export async function bootsrap(argvs = process.argv) {
     })
 
     if (parsedArgv.dev) {
-        await startDevServe(
+        return await startDevServe(
             parsedArgv?.template,
             parsedArgv?.config,
             version,
@@ -55,7 +55,11 @@ export async function bootsrap(argvs = process.argv) {
 }
 
 bootsrap()
-    .then(() => process.exit(0))
+    .then((mode) => {
+        if (mode !== 'DEV_MODE') {
+            process.exit(0)
+        }
+    })
     .catch((err) => {
         console.error(err.message || err)
         process.exit(1)
