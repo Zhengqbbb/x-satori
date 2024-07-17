@@ -37,10 +37,7 @@ export function getPathsByOptions(tempP?: string, cfgP?: string) {
     const cwd = process.cwd()
     const tempPath = resolve(cwd, tempP)
     const configPath = resolve(cwd, cfgP)
-    if (
-        !existsSync(tempPath)
-        || !existsSync(configPath)
-    ) {
+    if (!existsSync(tempPath) || !existsSync(configPath)) {
         log('E', 'File NOT Found. Please check files exsit')
         console.error(`  template_path: ${tempPath}`)
         console.error(`  config_path: ${configPath}`)

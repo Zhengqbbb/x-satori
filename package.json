@@ -15,9 +15,10 @@
   "keywords": [
     "satori",
     "vue-satori",
-    "astro-satori",
     "v-satori",
+    "astro-satori",
     "satori-astro",
+    "resvg",
     "cli"
   ],
   "exports": {

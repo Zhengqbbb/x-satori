@@ -38,24 +38,25 @@ export async function bootsrap(argvs = process.argv) {
             parsedArgv,
         )
     }
+    else if (parsedArgv.version) {
+        console.log(version)
+    }
+    else if (parsedArgv.help) {
+        generateHelp(version)
+    }
     else {
-        if (parsedArgv.version) {
-            console.log(version)
-        }
-        else if (parsedArgv.help) {
-            generateHelp(version)
-        }
-        else {
-            await generateSVG(
-                parsedArgv?.template,
-                parsedArgv?.config,
-                parsedArgv,
-                parsedArgv.output,
-            )
-        }
-
-        process.exit(0)
+        await generateSVG(
+            parsedArgv?.template,
+            parsedArgv?.config,
+            parsedArgv,
+            parsedArgv.output,
+        )
     }
 }
 
 bootsrap()
+    .then(() => process.exit(0))
+    .catch((err) => {
+        console.error(err.message || err)
+        process.exit(1)
+    })

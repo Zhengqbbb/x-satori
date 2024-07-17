@@ -1,8 +1,6 @@
 /**
- * @description: Term style output colorizen
- *               Inspiring picocolors(https://www.npmjs.com/package/picocolors)
- * @author: @Zhengqbbb (zhengqbbb@gmail.com)
- * @license MIT
+ * Terminal style output colorizen
+ * Inspiring picocolors(https://www.npmjs.com/package/picocolors)
  */
 
 import tty from 'node:tty'
@@ -43,46 +41,50 @@ function formatter(open: string, close: string, replace = open) {
 }
 
 function styleFn(enabled = isColorizenSupport()) {
+    const init = enabled ? formatter : () => String
     return {
         isColorSupported: enabled,
-        reset: enabled ? (s: string) => `\u001B[0m${s}\u001B[0m` : String,
-        bold: enabled ? formatter('\u001B[1m', '\u001B[0m', '\u001B[0m') : String,
-        dim: enabled ? formatter('\u001B[2m', '\u001B[0m', '\u001B[0m') : String,
-        italic: enabled ? formatter('\u001B[3m', '\u001B[0m', '\u001B[0m') : String,
-        underline: enabled ? formatter('\u001B[4m', '\u001B[0m') : String,
-        inverse: enabled ? formatter('\u001B[7m', '\u001B[0m') : String,
-        black: enabled ? formatter('\u001B[30m', '\u001B[0m') : String,
-        red: enabled ? formatter('\u001B[31m', '\u001B[0m') : String,
-        green: enabled ? formatter('\u001B[32m', '\u001B[0m') : String,
-        yellow: enabled ? formatter('\u001B[33m', '\u001B[0m') : String,
-        blue: enabled ? formatter('\u001B[34m', '\u001B[0m') : String,
-        magenta: enabled ? formatter('\u001B[35m', '\u001B[0m') : String,
-        cyan: enabled ? formatter('\u001B[36m', '\u001B[0m') : String,
-        white: enabled ? formatter('\u001B[37m', '\u001B[0m') : String,
-        gray: enabled ? formatter('\u001B[90m', '\u001B[0m') : String,
-        rgb: (rgbColor = '38;5;036') =>
-            enabled ? formatter(`\u001B[${rgbColor}m`, '\u001B[0m') : String,
-        bgBlack: enabled ? formatter('\u001B[40m', '\u001B[0m') : String,
-        bgRed: enabled ? formatter('\u001B[41m', '\u001B[0m') : String,
-        bgGreen: enabled ? formatter('\u001B[42m', '\u001B[0m') : String,
-        bgYellow: enabled ? formatter('\u001B[43m', '\u001B[0m') : String,
-        bgBlue: enabled ? formatter('\u001B[44m', '\u001B[0m') : String,
-        bgMagenta: enabled ? formatter('\u001B[45m', '\u001B[0m') : String,
-        bgCyan: enabled ? formatter('\u001B[46m', '\u001B[0m') : String,
-        bgWhite: enabled ? formatter('\u001B[47m', '\u001B[0m') : String,
+        reset: init('\x1B[0m', '\x1B[0m'),
+        bold: init('\x1B[1m', '\x1B[22m', '\x1B[22m\x1B[1m'),
+        dim: init('\x1B[2m', '\x1B[22m', '\x1B[22m\x1B[2m'),
+        italic: init('\x1B[3m', '\x1B[23m'),
+        underline: init('\x1B[4m', '\x1B[24m'),
+        inverse: init('\x1B[7m', '\x1B[27m'),
+        hidden: init('\x1B[8m', '\x1B[28m'),
+        strikethrough: init('\x1B[9m', '\x1B[29m'),
+
+        black: init('\x1B[30m', '\x1B[39m'),
+        red: init('\x1B[31m', '\x1B[39m'),
+        green: init('\x1B[32m', '\x1B[39m'),
+        yellow: init('\x1B[33m', '\x1B[39m'),
+        blue: init('\x1B[34m', '\x1B[39m'),
+        magenta: init('\x1B[35m', '\x1B[39m'),
+        cyan: init('\x1B[36m', '\x1B[39m'),
+        white: init('\x1B[37m', '\x1B[39m'),
+        gray: init('\x1B[90m', '\x1B[39m'),
+
+        bgBlack: init('\x1B[40m', '\x1B[49m'),
+        bgRed: init('\x1B[41m', '\x1B[49m'),
+        bgGreen: init('\x1B[42m', '\x1B[49m'),
+        bgYellow: init('\x1B[43m', '\x1B[49m'),
+        bgBlue: init('\x1B[44m', '\x1B[49m'),
+        bgMagenta: init('\x1B[45m', '\x1B[49m'),
+        bgCyan: init('\x1B[46m', '\x1B[49m'),
+        bgWhite: init('\x1B[47m', '\x1B[49m'),
+
+        rgb: (rgbColor = '38;5;036') => init(`\u001B[${rgbColor}m`, '\x1B[0m'),
     }
 }
 
 /**
- * @description: support control isColorizen as param's
- * style generator
+ * Support control isColorizen as param's style generator
  * @param {boolen} enabled
  * @return {Function} style
  */
 export const createStyle = styleFn
 
 /**
- * @description: commandline style output colorizen
+ * commandline style output colorizen
  *
  * Automatically determine whether output coloring is required
  * @tip the rgb color see to check your number: https://github.com/sindresorhus/xterm-colors
