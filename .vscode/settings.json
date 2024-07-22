@@ -1,5 +1,4 @@
 {
-  "volar.autoCompleteRefs": true,
   "files.associations": {
     "**/.x-cmd/*": "shellscript",
     "**/.x-cmd/*.yml": "yaml",

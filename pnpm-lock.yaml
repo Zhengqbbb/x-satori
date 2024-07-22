@@ -66,6 +66,9 @@ importers:
       pnpm:
         specifier: ^9.5.0
         version: 9.5.0
+      resvg-cli:
+        specifier: ^2.6.2
+        version: 2.6.2
       simple-git-hooks:
         specifier: ^2.11.1
         version: 2.11.1
@@ -3493,6 +3496,10 @@ packages:
   restore-cursor@4.0.0:
     resolution: {integrity: sha512-I9fPXU9geO9bHOt9pHHOhOkYerIMsmVaWB0rA2AI9ERh/+x/i7MV5HKBNrg+ljO5eoPVgCcnFuRjJ9uH6I/3eg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+
+  resvg-cli@2.6.2:
+    resolution: {integrity: sha512-DoC3PxvwaEFoVxmhl3lgF4njwhYKlbFCMVLcSx/o6YG5M3bvfAyc3k1wwtkDGtZzrCVHd182Mj8/pqXUFieiTQ==}
+    hasBin: true
 
   retext-latin@4.0.0:
     resolution: {integrity: sha512-hv9woG7Fy0M9IlRQloq/N6atV82NxLGveq+3H2WOi79dtIYWN8OaxogDm77f8YnVXJL2VD3bbqowu5E3EMhBYA==}
@@ -7742,6 +7749,10 @@ snapshots:
     dependencies:
       onetime: 5.1.2
       signal-exit: 3.0.7
+
+  resvg-cli@2.6.2:
+    dependencies:
+      '@resvg/resvg-js': 2.6.2
 
   retext-latin@4.0.0:
     dependencies:

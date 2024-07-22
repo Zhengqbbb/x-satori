@@ -161,7 +161,7 @@ export async function createServer(
                             }
                             catch (e: any) {
                                 server.ssrFixStacktrace(e)
-                                console.log(e.stack)
+                                console.error(e.stack)
                                 res.statusCode = 500
                                 res.end(e.stack)
                             }

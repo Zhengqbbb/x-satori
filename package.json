@@ -98,6 +98,7 @@
     "npm-run-all2": "^6.2.2",
     "pathe": "^1.1.2",
     "pnpm": "^9.5.0",
+    "resvg-cli": "^2.6.2",
     "simple-git-hooks": "^2.11.1",
     "tsx": "^4.16.2",
     "typescript": "^5.5.3",

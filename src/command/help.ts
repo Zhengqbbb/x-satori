@@ -3,7 +3,7 @@ import { style } from './style'
 
 export function generateHelp(version: string, code = 0) {
     // prettier-ignore
-    console.log(
+    console.info(
         `${style.yellow('NAME:')}
     ${style.green('x-satori')} - use Vue or Astro file to generate SVG images using Satori
 

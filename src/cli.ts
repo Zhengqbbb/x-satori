@@ -39,7 +39,7 @@ export async function bootsrap(argvs = process.argv) {
         )
     }
     else if (parsedArgv.version) {
-        console.log(version)
+        console.info(version)
     }
     else if (parsedArgv.help) {
         generateHelp(version)

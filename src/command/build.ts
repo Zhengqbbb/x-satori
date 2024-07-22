@@ -1,9 +1,33 @@
 import process from 'node:process'
-import { readFile } from 'node:fs/promises'
-import { writeFileSync } from 'node:fs'
+import { readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import { Readable } from 'node:stream'
+import { Buffer } from 'node:buffer'
 import type { CliOptions } from '../types'
 import { getPathsByOptions, getSatoriConfig, log } from './util'
+
+export async function writeStringToStdout(inputString: string): Promise<void> {
+    return new Promise((resolve) => {
+        let buffer = Buffer.from(inputString)
+
+        const rawStream = new Readable({
+            read() {
+                if (buffer.length === 0) {
+                    this.push(null)
+                    resolve()
+                }
+                else {
+                    const chunkSize = 1024 // 1KB
+                    const chunk = buffer.subarray(0, chunkSize)
+                    buffer = buffer.subarray(chunkSize)
+                    this.push(chunk)
+                }
+            },
+        })
+
+        rawStream.pipe(process.stdout)
+    })
+}
 
 export async function generateSVG(
     tempP: string,
@@ -20,10 +44,10 @@ export async function generateSVG(
 
     const svg = await satoriSVGParser(config, temp)
     if (!out) {
-        console.log(svg)
+        await writeStringToStdout(svg)
     }
     else {
-        writeFileSync(resolve(process.cwd(), out), svg, 'utf8')
+        await writeFile(resolve(process.cwd(), out), svg, 'utf8')
         log('I', resolve(process.cwd(), out))
     }
 }
