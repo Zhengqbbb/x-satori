@@ -1,7 +1,7 @@
 {
   "name": "x-satori",
   "type": "module",
-  "version": "0.2.0-beta.6",
+  "version": "0.2.0-beta.7",
   "packageManager": "pnpm@9.5.0",
   "description": "use Vue or Astro file to generate SVG image using Satori",
   "author": "Q.Ben Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb/)",
