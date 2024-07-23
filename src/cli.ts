@@ -1,5 +1,6 @@
 import process from 'node:process'
-import minimist from 'minimist'
+// import minimist from 'minimist'
+import { version } from '../package.json'
 import { generateSVG } from './command/build'
 import { startDevServe } from './command/dev'
 import { generateHelp } from './command/help'
@@ -17,8 +18,8 @@ process.stdin.on('data', (key: any) => {
         process.exit(130) // 128 + SIGINT
 })
 
-export async function bootsrap(argvs = process.argv) {
-    const { version } = await import('../package.json')
+export async function main(argvs = process.argv) {
+    const minimist = (await import('minimist')).default
     const parsedArgv = minimist<CliOptions>(argvs.slice(2, argvs.length), {
         alias: {
             v: 'version',
@@ -31,12 +32,13 @@ export async function bootsrap(argvs = process.argv) {
     })
 
     if (parsedArgv.dev) {
-        return await startDevServe(
+        await startDevServe(
             parsedArgv?.template,
             parsedArgv?.config,
             version,
             parsedArgv,
         )
+        return 'NO_EXIT'
     }
     else if (parsedArgv.version) {
         console.info(version)
@@ -54,9 +56,9 @@ export async function bootsrap(argvs = process.argv) {
     }
 }
 
-bootsrap()
-    .then((mode) => {
-        if (mode !== 'DEV_MODE') {
+main()
+    .then((signal) => {
+        if (signal !== 'NO_EXIT') {
             process.exit(0)
         }
     })

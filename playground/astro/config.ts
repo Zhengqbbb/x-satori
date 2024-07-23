@@ -10,6 +10,10 @@ const _DIRNAME = typeof __dirname !== 'undefined'
 export default defineSatoriConfig({
     height: 628,
     width: 1200,
+    props: {
+        title: 'Hello',
+        site: 'https://qbb.sh',
+    },
     fonts: [
         {
             name: 'Inter',
@@ -30,8 +34,4 @@ export default defineSatoriConfig({
             style: 'normal',
         },
     ],
-    props: {
-        title: 'Hello World!',
-        site: 'https://qbb.sh',
-    },
 })

@@ -19,6 +19,6 @@ export default antfu(
                 'ts/ban-ts-comment': 'off',
             },
         },
-        ignores: [],
+        ignores: ['bin'],
     },
 )

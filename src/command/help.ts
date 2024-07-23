@@ -1,7 +1,6 @@
-import process from 'node:process'
 import { style } from './style'
 
-export function generateHelp(version: string, code = 0) {
+export function generateHelp(version: string) {
     // prettier-ignore
     console.info(
         `${style.yellow('NAME:')}
@@ -32,5 +31,4 @@ ${style.yellow('EXAMPLES:')}
     ${style.cyan('x-satori --config "./satori.js" --template "./Template.vue" -o image.svg')}
 `,
     )
-    process.exit(code)
 }
