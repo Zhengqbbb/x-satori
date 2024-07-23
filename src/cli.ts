@@ -1,5 +1,5 @@
 import process from 'node:process'
-// import minimist from 'minimist'
+import minimist from 'minimist'
 import { version } from '../package.json'
 import { generateSVG } from './command/build'
 import { startDevServe } from './command/dev'
@@ -11,15 +11,7 @@ process.on('uncaughtException', (err) => {
     process.exit(1)
 })
 
-// catch SIGINT signal like control+c
-process.stdin.on('data', (key: any) => {
-    // eslint-disable-next-line eqeqeq
-    if (key == '\u0003')
-        process.exit(130) // 128 + SIGINT
-})
-
 export async function main(argvs = process.argv) {
-    const minimist = (await import('minimist')).default
     const parsedArgv = minimist<CliOptions>(argvs.slice(2, argvs.length), {
         alias: {
             v: 'version',
