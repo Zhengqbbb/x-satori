@@ -68,7 +68,7 @@ const DYNAMIC_STYLES = `
         max-width: 860px;
         margin-left: auto;
         margin-right: auto;
-        padding-top: 2.5rem;
+        padding-top: 150px;
         padding-left: 1rem;
         padding-right: 1rem;
     }
@@ -82,6 +82,7 @@ const DYNAMIC_STYLES = `
     }
     .virtual svg {
         width: 100%;
+        height: auto;
     }
     .theme-toggle {
         position: absolute;
