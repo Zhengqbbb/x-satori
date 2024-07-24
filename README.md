@@ -36,7 +36,7 @@
         </td>
         <td align="center" width="50%">
             <a href="https://youtu.be/8HkJg1a_Zew">
-                <img alt="youtube guide demo" src="./demo-vue.gif">
+                <img alt="youtube guide demo" src="./demo-astro.gif">
             </a>
             <br>
             <br>
@@ -59,11 +59,10 @@ cd <file_name>
 pnpm install
 
 # Development Model
-pnpm dev
+pnpm dev:og
 
 # [Generate] SVG
-pnpm build
-# or `pnpm gen:svg`
+pnpm gen:svg
 
 # [Generate] PNG
 pnpm gen:png
