@@ -5,10 +5,10 @@
   "private": true,
   "description": "use Astro file to generate Open Graph SVG or PNG by satori. Run script or use CLI",
   "scripts": {
-    "dev": "  x-satori -t ./Template.astro -c ./config.ts --dev",
-    "build": "x-satori -t ./Template.astro -c ./config.ts -o image.svg",
+    "dev:og": "  x-satori -t ./Template.astro -c ./config.ts --dev",
     "gen:svg": "tsx gen-svg.mts",
-    "gen:png": "tsx gen-png.mts"
+    "gen:png": "tsx gen-png.mts",
+    "build:og": "x-satori -t ./Template.astro -c ./config.ts -o image.svg"
   },
   "dependencies": {
     "astro": "^4.11.5"

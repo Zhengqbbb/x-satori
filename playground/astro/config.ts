@@ -11,7 +11,7 @@ export default defineSatoriConfig({
     height: 628,
     width: 1200,
     props: {
-        title: 'Hello',
+        title: 'Hello World',
         site: 'https://qbb.sh',
     },
     fonts: [
