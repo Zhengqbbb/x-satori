@@ -18,7 +18,7 @@
         </td>
         <td align="center" width="50%">
             <h4>Astro</h4>
-            <a href="https://stackblitz.com/edit/x-satori?file=package.json">
+            <a href="https://stackblitz.com/edit/x-satori-astro?file=package.json">
                 <img alt="Open in StackBlitz" src="https://developer.stackblitz.com/img/open_in_stackblitz.svg">
             </a>
         </td>
