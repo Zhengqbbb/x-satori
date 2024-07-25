@@ -16,7 +16,7 @@ export default defineSatoriConfig({
     props: {
         title: Meta.SITE_TITLE,
         desc: Meta.SITE_DESCRIPTION,
-        site: Meta.SITE_DOMAIN,
+        site: Meta.SITE,
     },
     fonts: [
         {
