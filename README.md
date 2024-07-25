@@ -358,7 +358,7 @@ const { title = Hello world } = Astro.props;
 
 - **Example**: [playground/astro](./playground/astro/) ⭐⭐⭐
 - **Example (Advanced)** - Using `Shell Scripts` to batch image generation with `resvg-cli`:<br>
-    [Repo - Zhengqbbb/qbb.sh/.x-cmd/og](https://github.com/Zhengqbbb/qbb.sh/blob/b5638935290a698a0c52de4b321efb55ee3ed733/.x-cmd/og#L27-L35)
+    [Repo - Zhengqbbb/qbb.sh/.x-cmd/og](https://github.com/Zhengqbbb/qbb.sh/blob/6fe03b051c1468417682da6e329be0e0b77c6468/.x-cmd/og#L37-L45)
 
 </details>
 
