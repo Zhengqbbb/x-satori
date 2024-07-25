@@ -1,26 +1,53 @@
 import process from 'node:process'
-import { readFile } from 'node:fs/promises'
-import { writeFileSync } from 'node:fs'
+import { readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import { Readable } from 'node:stream'
+import { Buffer } from 'node:buffer'
+import type { CliOptions } from '../types'
+import { getPathsByOptions, getSatoriConfig, log } from './util'
 
-import type { SatoriOptions } from '../vue'
-import { satoriVue } from '../vue'
-import { getPathOpts, log } from './util'
+export async function writeStringToStdout(inputString: string): Promise<void> {
+    return new Promise((resolve) => {
+        let buffer = Buffer.from(inputString)
 
-export async function generateSVG(tempP?: string, cfgP?: string, out?: string) {
-    const { tempPath, configPath } = getPathOpts(tempP, cfgP)
+        const rawStream = new Readable({
+            read() {
+                if (buffer.length === 0) {
+                    this.push(null)
+                    resolve()
+                }
+                else {
+                    const chunkSize = 1024 // 1KB
+                    const chunk = buffer.subarray(0, chunkSize)
+                    buffer = buffer.subarray(chunkSize)
+                    this.push(chunk)
+                }
+            },
+        })
+
+        rawStream.pipe(process.stdout)
+    })
+}
+
+export async function generateSVG(
+    tempP: string,
+    cfgP: string,
+    argv: CliOptions,
+    out?: string,
+) {
+    const { tempPath, configPath } = getPathsByOptions(tempP, cfgP)
+    const satoriSVGParser = tempPath.endsWith('.vue')
+        ? (await import('../vue')).default
+        : (await import('../astro')).default
     const temp = await readFile(tempPath, 'utf8')
-    const cfgTmp = await (await import('vite')).loadConfigFromFile(
-        {} as any,
-        configPath,
-    )
-    const config = cfgTmp?.config as SatoriOptions || {}
-    const svg = await satoriVue(config, temp)
+    const config = await getSatoriConfig(configPath, argv)
+
+    const svg = await satoriSVGParser(config, temp)
     if (!out) {
-        console.log(svg)
+        await writeStringToStdout(svg)
     }
     else {
-        writeFileSync(resolve(process.cwd(), out), svg, 'utf8')
+        await writeFile(resolve(process.cwd(), out), svg, 'utf8')
         log('I', resolve(process.cwd(), out))
     }
 }

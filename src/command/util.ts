@@ -1,7 +1,8 @@
-/* eslint-disable indent */
 import process from 'node:process'
 import { resolve } from 'node:path'
 import { existsSync } from 'node:fs'
+import { loadConfigFromFile } from 'vite'
+import type { CliOptions, SatoriOptions } from '../types'
 import { createStyle } from './style'
 
 export function log(type: 'I' | 'W' | 'E', msg: string, help?: string) {
@@ -26,9 +27,9 @@ export function log(type: 'I' | 'W' | 'E', msg: string, help?: string) {
     }
 }
 
-export function getPathOpts(tempP?: string, cfgP?: string) {
+export function getPathsByOptions(tempP?: string, cfgP?: string) {
     if (!tempP || !cfgP) {
-        log('E', 'Please provide options --template <vue_path> and --config <satori_cfg_path>', '`x-satori --help`')
+        log('E', 'Please provide options --template <template_path> and --config <satori_config_path>', '`x-satori --help`')
         console.error(`  template_path: ${tempP}`)
         console.error(`  config_path: ${cfgP}`)
         process.exit(1)
@@ -36,14 +37,22 @@ export function getPathOpts(tempP?: string, cfgP?: string) {
     const cwd = process.cwd()
     const tempPath = resolve(cwd, tempP)
     const configPath = resolve(cwd, cfgP)
-    if (
-        !existsSync(tempPath)
-     || !existsSync(configPath)
-    ) {
+    if (!existsSync(tempPath) || !existsSync(configPath)) {
         log('E', 'File NOT Found. Please check files exsit')
         console.error(`  template_path: ${tempPath}`)
         console.error(`  config_path: ${configPath}`)
         process.exit(1)
     }
     return { tempPath, configPath }
+}
+
+export async function getSatoriConfig(configPath: string, argv: CliOptions) {
+    const cfgTmp = await loadConfigFromFile({} as any, configPath)
+    const config = cfgTmp?.config as SatoriOptions || {}
+    if (argv.props) {
+        const argvProps = JSON.parse(argv.props)
+        config.props ??= {}
+        config.props = { ...config.props, ...argvProps }
+    }
+    return config
 }

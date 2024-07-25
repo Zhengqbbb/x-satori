@@ -1,9 +1,9 @@
 {
-  "volar.autoCompleteRefs": true,
   "files.associations": {
     "**/.x-cmd/*": "shellscript",
     "**/.x-cmd/*.yml": "yaml",
     "*.css": "postcss",
+    ".czrc": "json",
     "_headers": "properties",
     "_redirects": "properties"
   },
@@ -57,5 +57,5 @@
     "scss",
     "pcss",
     "postcss"
-  ],
+  ]
 }

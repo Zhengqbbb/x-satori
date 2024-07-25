@@ -1,4 +1,5 @@
 node_modules
+unocss.config.ts
 .env
 *.log
 
