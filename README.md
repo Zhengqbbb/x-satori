@@ -367,8 +367,7 @@ const { title = Hello world } = Astro.props;
 <details>
     <summary>pipeline generate <b>png</b> with <code>resvg-cli</code></summary><br>
 
-> [!TIP]
-> You can install it globally or use `bunx` for replacement startup
+> TIP: You can install it globally or use `bunx` for replacement startup
 
 ```sh
 npx x-satori --config "./satori.ts" --template "./Template.vue" --props '{"title": "Hello World"}' | \
@@ -380,8 +379,7 @@ npx x-satori --config "./satori.ts" --template "./Template.vue" --props '{"title
 <details>
     <summary>pipeline generate <b>webp</b> or edit with <code>resvg-cli</code> and <code>imagemagick</code> </summary><br>
 
-> [!TIP]
-> You can install it globally or use `bunx` for replacement startup
+> TIP: You can install it globally or use `bunx` for replacement startup
 
 ```sh
 npx x-satori --config "./satori.ts" --template "./Template.vue" --props '{"title": "Hello World"}' | \
