@@ -438,7 +438,12 @@ I'm happy that I finally finished this series of experiments and results this we
   </tr>
   <tr>
     <td align="center" width="50%">
-        <b>Vue</b><br>
+        <b>Vue</b>
+        <br>
+        Vitepress buildEnd example:
+        <br>
+        <a href="./examples/vue-vitepress/">examples/vue-vitepress/</a>
+        <br>
         ESM script code example:
         <br>
         <a href="https://github.com/Zhengqbbb/qbb.sh/tree/vitesse/build/node/og/main.mts">qbb.sh@vitesse/node/og/main.mts</a>
