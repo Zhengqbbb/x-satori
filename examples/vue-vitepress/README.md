@@ -1,4 +1,4 @@
-# x-satori - Vitepress `buildEnd` hook example 
+# x-satori - Vitepress `buildEnd` hook example
 
 
 This example demonstrates how to use the Vitepress [buildEnd hook](https://vitepress.dev/reference/site-config#buildend) to generate **Open Graph image**.
@@ -32,7 +32,7 @@ npm run preview
 npm install -D x-satori @resvg/resvg-js
 ```
 
-- [x-satori](https://github.com/Zhengqbbb/x-satori) - Using Astro file (.astro) as template to generate image SVG.
+- [x-satori](https://github.com/Zhengqbbb/x-satori) - Using Vue file (.vue) as template to generate image SVG.
 - [@resvg/resvg-js](https://www.npmjs.com/package/@resvg/resvg-js) - Convert SVG to PNG.
 
 ### 2. Create build utils folder and files
