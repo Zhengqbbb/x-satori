@@ -79,6 +79,14 @@ npm install -D x-satori
 ### Vue
 
 <details>
+<summary>Using Vitepress <a href="https://vitepress.dev/reference/site-config#buildend">buildEnd hook</a></summary><br>
+
+- **Example**: [examples/vue-vitepress](./examples/vue-vitepress/) ⭐⭐⭐
+
+</details>
+
+
+<details>
 <summary>Using CLI</summary><br>
 
 **Example**: [playground/vue](./playground/vue/)
@@ -124,6 +132,7 @@ export default defineSatoriConfig({
     },
 })
 ```
+
 #### Vue template file
 
 - **Only the template syntax is used**, and props are only used for hint completion
@@ -377,7 +386,7 @@ npx x-satori --config "./satori.ts" --template "./Template.vue" --props '{"title
 </details>
 
 <details>
-    <summary>pipeline generate <b>webp</b> or edit with <code>resvg-cli</code> and <code>imagemagick</code> </summary><br>
+    <summary>pipeline generate <b>webp</b> or more edit with <code>resvg-cli</code> and <code>imagemagick</code> </summary><br>
 
 > TIP: You can install it globally or use `bunx` for replacement startup
 

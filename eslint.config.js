@@ -22,6 +22,7 @@ export default antfu(
         ignores: [
             'bin',
             'examples/astro-file-endpoint',
+            'examples/vue-vitepress',
         ],
     },
 )
