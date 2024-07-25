@@ -357,7 +357,7 @@ const { title = Hello world } = Astro.props;
 ```
 
 - **Example**: [playground/astro](./playground/astro/) ⭐⭐⭐
-- **Advanced Example** - Using `Shell Scripts` to batch image generation with `resvg-cli`:<br>
+- **Example (Advanced)** - Using `Shell Scripts` to batch image generation with `resvg-cli`:<br>
     [Repo - Zhengqbbb/qbb.sh/.x-cmd/og](https://github.com/Zhengqbbb/qbb.sh/blob/b5638935290a698a0c52de4b321efb55ee3ed733/.x-cmd/og#L27-L35)
 
 </details>
@@ -436,6 +436,10 @@ I'm happy that I finally finished this series of experiments and results this we
     </td>
     <td align="center" width="50%">
         <b>Astro</b>
+        <br>
+        File endpoints example:
+        <br>
+        <a href="https://satori-astro.vercel.app/blog/">https://satori-astro.vercel.app</a>
         <br>
         ESM script code example:
         <br>
