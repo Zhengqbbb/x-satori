@@ -15,14 +15,14 @@ cd <file_name>
 npm install
 
 # Development Image Template Model
-npm dev:og
+npm run dev:og
 
 # Development Website
-npm dev
+npm run dev
 # Build Website
-npm build
+npm run build
 # Preview Website
-npm preview
+npm run preview
 ```
 
 ## Get-Started
