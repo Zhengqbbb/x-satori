@@ -12,14 +12,14 @@
     <tr>
         <td align="center" width="50%">
         <br>
-            <p><b><a href="#vue">Vue</a></b></p>
+            <p><b><a href="#-vue">Vue</a></b></p>
             <a href="https://stackblitz.com/edit/x-satori?file=package.json">
                 <img alt="Open in StackBlitz" src="https://developer.stackblitz.com/img/open_in_stackblitz.svg">
             </a>
         </td>
         <td align="center" width="50%">
         <br>
-            <p><b><a href="#astro">Astro</a></b></p>
+            <p><b><a href="#-astro">Astro</a></b></p>
             <a href="https://stackblitz.com/edit/x-satori-astro?file=package.json">
                 <img alt="Open in StackBlitz" src="https://developer.stackblitz.com/img/open_in_stackblitz.svg">
             </a>
@@ -76,7 +76,7 @@ pnpm gen:png
 npm install -D x-satori
 ```
 
-### Vue
+### ⭐ Vue
 
 <details>
 <summary>Using Vitepress <a href="https://vitepress.dev/reference/site-config#buildend">buildEnd hook</a></summary><br>
@@ -193,7 +193,7 @@ main()
 
 </details>
 
-### Astro
+### ⭐ Astro
 
 <details>
     <summary>Using Astro <a href="https://docs.astro.build/en/guides/endpoints/">file-endpoints</a></summary><br>
@@ -371,7 +371,7 @@ const { title = Hello world } = Astro.props;
 
 </details>
 
-### Command-line Advanced Usage
+### 🎼 Command-line Advanced Usage
 
 <details>
     <summary>pipeline generate <b>png</b> with <code>resvg-cli</code></summary><br>
