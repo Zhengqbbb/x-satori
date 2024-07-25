@@ -1,15 +1,17 @@
 ---
-interface Props {
-    title: string
-};
+const { 
+    title = 'Astro Blog',
+    description = 'Welcome to my website!',
+    site = 'example.com',
+} = Astro.props
 
-const { title } = Astro.props
 const backgroundColor = '#0D0F14'
 const bgBorderStyle = `1px dashed #24262D`
 const borderTop = bgBorderStyle
 const borderLeft = bgBorderStyle
-const bgLeftMask = `linear-gradient(to top left , ${backgroundColor} 20% , transparent 50%, rgba(50, 69, 255, 0.3) 80%, rgba(184, 69, 237, 0.3) 100%)`
+const bgMask = `linear-gradient(to top left , ${backgroundColor} 20% , transparent 50%, rgba(50, 69, 255, 0.3) 80%, rgba(184, 69, 237, 0.3) 100%)`
 ---
+
 <div
     style={{ backgroundColor }}
     class="flex flex-col relative w-full h-full text-2rem text-white items-center justify-center overflow-hidden"
@@ -30,7 +32,7 @@ const bgLeftMask = `linear-gradient(to top left , ${backgroundColor} 20% , trans
             }
             <div
                 class="absolute bottom-0 left-0 right-0 top-0 w-full flex"
-                style={{ backgroundImage: bgLeftMask }}
+                style={{ backgroundImage: bgMask }}
             >
             </div>
         </div>
@@ -64,12 +66,10 @@ const bgLeftMask = `linear-gradient(to top left , ${backgroundColor} 20% , trans
     >
         <div set:html={title} class="text-4rem text-white font-bold text-center" style={{ whiteSpace: 'pre-wrap' }}>
         </div>
-        <div class="mt-6 text-2rem text-neutral-300" style={{ whiteSpace: 'pre-wrap' }}>
-            This is a description
+        <div set:html={description} class="mt-6 text-2rem text-neutral-300" style={{ whiteSpace: 'pre-wrap' }}>
         </div>
     </div>
 
-    <p class="absolute bottom-0 border-b-2 border-white text-26px">
-        https://qbb.sh
+    <p set:html={site} class="absolute bottom-0 border-b-2 border-white text-26px">
     </p>
 </div>

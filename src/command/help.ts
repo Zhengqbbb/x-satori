@@ -12,8 +12,9 @@ ${style.yellow('WEBSITE:')}
 ${style.yellow('VERSION:')} ${version}
 
 ${style.yellow('SYNOPSIS:')}
-    x-satori --template <template_file_path> --config <satori_config_path> [--props <JSON>] \\
-        [ --output <svg_path> | --dev [--host --port <num>] ]
+    x-satori --template <template_file_path> --config <satori_config_path> [--props <JSON>]
+    x-satori --template <template_file_path> --config <satori_config_path> [--props <JSON>] --output <svg_path>
+    x-satori --template <template_file_path> --config <satori_config_path> [--props <JSON>] --dev [--host --port <num>]
 
 ${style.yellow('OPTIONS:')}
     ${style.cyan('-d|--dev')}                   ${style.red('Turn on Dev mode')}

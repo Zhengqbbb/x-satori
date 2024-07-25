@@ -11,13 +11,15 @@
 <table>
     <tr>
         <td align="center" width="50%">
-            <h4>Vue</h4>
+        <br>
+            <p><b><a href="#vue">Vue</a></b></p>
             <a href="https://stackblitz.com/edit/x-satori?file=package.json">
                 <img alt="Open in StackBlitz" src="https://developer.stackblitz.com/img/open_in_stackblitz.svg">
             </a>
         </td>
         <td align="center" width="50%">
-            <h4>Astro</h4>
+        <br>
+            <p><b><a href="#astro">Astro</a></b></p>
             <a href="https://stackblitz.com/edit/x-satori-astro?file=package.json">
                 <img alt="Open in StackBlitz" src="https://developer.stackblitz.com/img/open_in_stackblitz.svg">
             </a>
@@ -79,23 +81,31 @@ npm install -D x-satori
 <details>
 <summary>Using CLI</summary><br>
 
+**Example**: [playground/vue](./playground/vue/)
+
 - Dependency: **Vue | Vite**
 
 ```sh
 $ npx x-satori --help
 
 SYNOPSIS:
-    x-satori --template <template_file_path> --config <satori_config_path> [ --output <path> | --dev ]
+    x-satori --template <template_file_path> --config <satori_config_path> [--props <JSON>]
+    x-satori --template <template_file_path> --config <satori_config_path> [--props <JSON>] --output <svg_path>
+    x-satori --template <template_file_path> --config <satori_config_path> [--props <JSON>] --dev [--host --port <num>]
 
 OPTIONS:
     -d|--dev                   Turn on Dev mode
+       --host                  Expose  host in Dev mode
+       --port     <num>        Specify port in Dev mode
     -t|--template <path>       The Vue or Astro template file path
     -c|--config   <path>       The export satori configure file path
     -o|--output   <path>       Target output SVG path
+    --props       <JSON_str>   Overwrite and use props in config
 
 EXAMPLES:
-    x-satori --config "./satori.js" --template "./Template.vue" --dev
-    x-satori --config "./satori.js" --template "./Template.vue"
+    x-satori --config "./satori.ts" --template "./Template.vue" --dev --host
+    x-satori --config "./satori.ts" --template "./Template.vue"
+    x-satori --config "./satori.js" --template "./Template.vue" --props '{"title": "Hello World"}'
     x-satori --config "./satori.js" --template "./Template.vue" -o image.svg
 ```
 
@@ -135,9 +145,7 @@ const props = defineProps({
 </template>
 ```
 
-Example: [`playground/`](./playground/)
-
-<br></details>
+</details>
 
 <details>
 <summary>Using ESM script</summary><br>
@@ -167,25 +175,226 @@ function main() {
 main()
 ```
 
-Example: [`examples/run-esm-script`](./examples/run-esm-script/)
+- **Example**: [examples/vue-run-esm-script](./examples/vue-run-esm-script/)
 
-```sh
-npm run gen:svg
-npm run gen:png
-```
+    ```sh
+    npm run gen:svg
+    npm run gen:png
+    ```
 
 </details>
 
 ### Astro
 
-- Using Astro File endpoint
-- Using CLI
-- Using ESM script
+<details>
+    <summary>Using Astro <a href="https://docs.astro.build/en/guides/endpoints/">file-endpoints</a></summary><br>
+
+- **Example**: [examples/astro-file-endpoint](./examples/astro-file-endpoint/) ⭐⭐⭐
+- **Example**: [Repo - Zhengqbbb/qbb.sh](https://github.com/Zhengqbbb/qbb.sh/blob/astro/src/pages/og/%5Bslug%5D.png.ts)
+
+
+
+---
+
+#### 1. Install Dependencies
+
+```sh
+npm install -D x-satori @resvg/resvg-js # Convert SVG to PNG
+```
+
+#### 2. Create Astro [file-endpoints](https://docs.astro.build/en/guides/endpoints/)
+
+> If target is generate `dist/og/*.png`.<br>
+> So that touch a file `src/pages/og/[slug].png.ts`
+
+```ts
+import { readFile } from 'node:fs/promises'
+import { type SatoriOptions, satoriAstro } from 'x-satori/astro'
+import { Resvg } from '@resvg/resvg-js'
+import type { APIRoute } from 'astro'
+import { type CollectionEntry, getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+    return posts
+        .map(post => ({
+            params: { slug: post.slug },
+            props: { ...post },
+        }));
+}
+
+async function getPostImageBuffer(props) {
+        const template = await readFile(/** .astro template file */, 'utf-8')
+        const config: SatoriOptions = {
+            //... satori options,
+            props: {
+                //...astro template file props
+                ...props.data,
+            }
+        }
+        const svg = await satoriAstro(config, template)
+        const resvg = new Resvg(svg)
+        const pngData = resvg.render()
+        return pngData.asPng()
+}
+
+export const GET: APIRoute = async ({ props }) =>
+    new Response(
+        await getPostImageBuffer(props as CollectionEntry<'blog'>),
+        {
+            headers: { 'Content-Type': 'image/png' },
+        },
+    )
+```
+
+</details>
+
+<details>
+<summary>Using ESM script</summary><br>
+
+- Dependency: **Astro**
+
+```mjs
+import { defineSatoriConfig, satoriAstro } from 'x-satori/astro'
+
+function main() {
+    const _DIRNAME = typeof __dirname !== 'undefined'
+        ? __dirname
+        : dirname(fileURLToPath(import.meta.url))
+    const _OUTPUT = resolve(_DIRNAME, './image/og.png')
+
+    const templateStr = await readFile(resolve(_DIRNAME, './Template.vue'), 'utf8')
+    const opt = defineSatoriConfig({
+    // ... Satori options
+        props: {
+        // ...Vue SFC props options
+        // title: "Hello world"
+        },
+    })
+    const strSVG = await satoriAstro(opt, templateStr)
+    console.log(strSVG)
+}
+main()
+```
+
+- **Example**: [examples/astro-run-esm-script](./examples/astro-run-esm-script/) ⭐⭐⭐
+
+    ```sh
+    npm run gen:svg
+    npm run gen:png
+    ```
+
+- **Example**: [Repo - Zhengqbbb/qbb.sh@v2.1.1/.x-cmd/og/main.ts](https://github.com/Zhengqbbb/qbb.sh/blob/v2.1.1/.x-cmd/og/main.ts)
+
+</details>
+
+<details>
+<summary>Using CLI</summary><br>
+
+- Dependency: **Astro** | **Vite** (for dev mode)
+
+```sh
+$ npx x-satori --help
+
+SYNOPSIS:
+    x-satori --template <template_file_path> --config <satori_config_path> [--props <JSON>]
+    x-satori --template <template_file_path> --config <satori_config_path> [--props <JSON>] --output <svg_path>
+    x-satori --template <template_file_path> --config <satori_config_path> [--props <JSON>] --dev [--host --port <num>]
+
+OPTIONS:
+    -d|--dev                   Turn on Dev mode
+       --host                  Expose  host in Dev mode
+       --port     <num>        Specify port in Dev mode
+    -t|--template <path>       The Vue or Astro template file path
+    -c|--config   <path>       The export satori configure file path
+    -o|--output   <path>       Target output SVG path
+    --props       <JSON_str>   Overwrite and use props in config
+
+EXAMPLES:
+    x-satori --config "./satori.ts" --template "./Template.astro" --dev --host
+    x-satori --config "./satori.ts" --template "./Template.astro"
+    x-satori --config "./satori.js" --template "./Template.astro" --props '{"title": "Hello World"}'
+    x-satori --config "./satori.js" --template "./Template.astro" -o image.svg
+```
+
+#### Configure
+
+- Extends Satori options and add Vue file props option
+
+```mjs
+import { defineSatoriConfig } from 'x-satori/astro'
+
+export default defineSatoriConfig({
+    // ... Satori options
+    props: {
+        // ...astro file props options
+        // title: "Hello world"
+    },
+})
+```
+
+#### Astro template file
+
+- **Only the template syntax is used**, and props are only used for hint completion
+- [→ Satori supports common CSS features](https://github.com/vercel/satori#css)
+- [→ Tailwindcss documentation](https://tailwindcss.com/docs/customizing-colors)
+
+```astro
+---
+interface Props {
+    title: string
+};
+
+const { title = Hello world } = Astro.props;
+---
+<div class="w-full h-full text-1.4rem text-white flex flex-col items-center justify-between">
+    <h2 >
+        {title}
+    </h2>
+</div>
+
+```
+
+- **Example**: [playground/astro](./playground/astro/) ⭐⭐⭐
+- **Advanced Example** - Using `Shell Scripts` to batch image generation with `resvg-cli`:<br>
+    [Repo - Zhengqbbb/qbb.sh/.x-cmd/og](https://github.com/Zhengqbbb/qbb.sh/blob/b5638935290a698a0c52de4b321efb55ee3ed733/.x-cmd/og#L27-L35)
+
+</details>
+
+### Command-line Advanced Usage
+
+<details>
+    <summary>pipeline generate <b>png</b> with <code>resvg-cli</code></summary><br>
+
+> [!TIP]
+> You can install it globally or use `bunx` for replacement startup
+
+```sh
+npx x-satori --config "./satori.ts" --template "./Template.vue" --props '{"title": "Hello World"}' | \
+    npx resvg-cli - image.png
+```
+
+</details>
+
+<details>
+    <summary>pipeline generate <b>webp</b> or edit with <code>resvg-cli</code> and <code>imagemagick</code> </summary><br>
+
+> [!TIP]
+> You can install it globally or use `bunx` for replacement startup
+
+```sh
+npx x-satori --config "./satori.ts" --template "./Template.vue" --props '{"title": "Hello World"}' | \
+    npx resvg-cli - | \
+    magick - webp:image.webp
+```
+
+</details>
 
 ## How it works
 1. ▲ [Satori](https://github.com/vercel/satori) is an amazing library for generating SVG strings from pure HTML and CSS.
 2. Unfortunately, it is built on top of React's JSX and expects ["React-elements-like objects"](https://github.com/vercel/satori#use-without-jsx).
-3. Thank an other library [natemoo-re/satori-html](https://github.com/natemoo-re/satori-html) can to generate the necessary VDOM object from a string of HTML.
+3. Thanks an library [natemoo-re/satori-html](https://github.com/natemoo-re/satori-html) can to generate the necessary VDOM object from a string of HTML.
 4. So the key is to **convert the Vue SFC file to an HTML string**, and here I used transform so that I could generate it via script (Only the template syntax is used)
     - `@vue/compiler-sfc`: to parse Vue SFC file
     - `vue - createSSRApp`  and `vue/server-renderer`: transform HTML string
@@ -251,6 +460,7 @@ I'm happy that I finally finished this series of experiments and results this we
 </details>
 
 > I did it step by step according to the documentation of Vue and Vite, if you are interested, PR welcome 🤗
+
 ## LICENSE
 
 MIT

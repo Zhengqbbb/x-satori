@@ -1,0 +1,25 @@
+{
+  "name": "cosmic-chasm",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "dev:og": "x-satori -c src/og/config.ts -t src/og/Template.astro --dev"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.8.2",
+    "@astrojs/mdx": "^3.1.3",
+    "@astrojs/rss": "^4.0.7",
+    "@astrojs/sitemap": "^3.1.6",
+    "astro": "^4.12.2",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "jimp": "^0.22.12",
+    "x-satori": "^0.2.0-beta.9"
+  }
+}

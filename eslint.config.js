@@ -19,6 +19,9 @@ export default antfu(
                 'ts/ban-ts-comment': 'off',
             },
         },
-        ignores: ['bin'],
+        ignores: [
+            'bin',
+            'examples/astro-file-endpoint',
+        ],
     },
 )
