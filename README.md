@@ -459,7 +459,8 @@ I'm happy that I finally finished this series of experiments and results this we
 
 ## Related Links
 
-- [nuxt-og-image](https://github.com/harlan-zw/nuxt-og-image) - Nuxt or want to use edge Fn
+- [nuxt-modules/og-image](https://github.com/nuxt-modules/og-image) - Nuxt or want to use edge Fn
+- [Vercel / Open Graph (OG) Image Generation](https://vercel.com/docs/functions/og-image-generation)
 
 ## FAQ
 
@@ -470,9 +471,32 @@ I'm happy that I finally finished this series of experiments and results this we
 
 </details>
 
-> I did it step by step according to the documentation of Vue and Vite, if you are interested, PR welcome 🤗
+## Contributing
+
+> I did it step by step according to the documentation of Astro, Vue and Vite, if you are interested, PR welcome 🤗
+
+```sh
+pnpm install
+pnpm dev        # dev mode
+pnpm x --help   # start up the CLI and development
+```
 
 ## LICENSE
 
 MIT
 Copyright (c) 2023-2024 [Q.Ben Zheng](https://github.com/Zhengqbbb)
+
+<p align="center">
+    <table>
+        <tbody>
+        <td align="center">
+            <br>
+            I just try my best to make thing well.<br>
+            Could you give a star ⭐ to encourage me 🤗
+            <br>
+            If possible, can to be my <a href="https://github.com/sponsors/Zhengqbbb">💖 Sponsor 💖</a> to support my work
+            <img width="800" height="0" />
+        </td>
+        </tbody>
+    </table>
+</p>
