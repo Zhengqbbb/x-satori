@@ -2,6 +2,8 @@
   "files.associations": {
     "**/.x-cmd/*": "shellscript",
     "**/.x-cmd/*.yml": "yaml",
+    "**/.x-cmd/*.js": "javascript",
+    "**/.x-cmd/*.*ts": "typescript",
     "*.css": "postcss",
     ".czrc": "json",
     "_headers": "properties",
