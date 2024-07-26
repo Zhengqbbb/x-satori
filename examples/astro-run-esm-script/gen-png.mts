@@ -48,6 +48,9 @@ import { type SatoriOptions, satoriAstro } from 'x-satori/astro'
             mode: 'width',
             value: 1200,
         },
+        font: {
+            loadSystemFonts: false,
+        },
     })
     return await writeFile(_OUTPUT, render.asPng())
 }()).catch((err: Error) => {

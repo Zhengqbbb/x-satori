@@ -37,7 +37,7 @@
             </a>
         </td>
         <td align="center" width="50%">
-            <a href="https://youtu.be/8HkJg1a_Zew">
+            <a href="https://youtu.be/LG8PDLZHEts">
                 <img alt="youtube guide demo" src="./demo-astro.gif">
             </a>
             <br>
