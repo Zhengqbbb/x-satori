@@ -65,7 +65,7 @@
     "prepare": "simple-git-hooks && cpx node_modules/yoga-wasm-web/dist/yoga.wasm src",
     "prepack": "run-s lint build",
     "release": "run-s release:bump release:publish",
-    "release:bump": "bumpp -y -c 'build: :bookmark: publish v%s' -x 'node ./.x-cmd/up-v.js'",
+    "release:bump": "bumpp -y --all -c 'build: :bookmark: publish v%s' -x 'node ./.x-cmd/up-v.js'",
     "release:publish": "pnpm publish",
     "release:next": "bumpp --no-commit --no-push --no-tag && pnpm publish --tag next --no-git-checks",
     "demo:vue:dev": "pnpm -C playground/vue dev:og",
