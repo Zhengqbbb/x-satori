@@ -20,6 +20,6 @@
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
     "jimp": "^1.6.0",
-    "x-satori": "^0.3.0"
+    "x-satori": "^0.4.0"
   }
 }
