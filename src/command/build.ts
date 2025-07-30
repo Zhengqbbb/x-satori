@@ -1,9 +1,9 @@
-import process from 'node:process'
+import type { CliOptions } from '../types'
+import { Buffer } from 'node:buffer'
 import { readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import process from 'node:process'
 import { Readable } from 'node:stream'
-import { Buffer } from 'node:buffer'
-import type { CliOptions } from '../types'
 import { getPathsByOptions, getSatoriConfig, log } from './util'
 
 export async function writeStringToStdout(inputString: string): Promise<void> {

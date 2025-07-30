@@ -1,7 +1,7 @@
+import { readdir, writeFile } from 'node:fs/promises'
+import { createRequire } from 'node:module'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { createRequire } from 'node:module'
-import { readdir, writeFile } from 'node:fs/promises'
 
 const _dirname = typeof __dirname !== 'undefined'
     ? __dirname

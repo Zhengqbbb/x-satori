@@ -11,13 +11,13 @@
     "gen:png": "tsx gen-png.mts"
   },
   "dependencies": {
-    "vue": "^3.4.33"
+    "vue": "^3.5.18"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
-    "@types/node": "^20.14.12",
-    "tsx": "^4.16.2",
-    "vite": "^5.3.4",
+    "@types/node": "^24.1.0",
+    "tsx": "^4.20.3",
+    "vite": "^7.0.6",
     "x-satori": "^0.2.0"
   }
 }

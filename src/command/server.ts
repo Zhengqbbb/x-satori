@@ -1,7 +1,7 @@
+import type { CliOptions } from '../types'
 import { readFile } from 'node:fs/promises'
 import process from 'node:process'
 import { createServer as createViteServer } from 'vite'
-import type { CliOptions } from '../types'
 import { getSatoriConfig, log } from './util'
 
 // #region - HTML Template

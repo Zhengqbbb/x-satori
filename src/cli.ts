@@ -1,10 +1,10 @@
+import type { CliOptions } from './types'
 import process from 'node:process'
 import minimist from 'minimist'
 import { version } from '../package.json'
 import { generateSVG } from './command/build'
 import { startDevServe } from './command/dev'
 import { generateHelp } from './command/help'
-import type { CliOptions } from './types'
 
 process.on('uncaughtException', (err) => {
     console.error(err.message || err)

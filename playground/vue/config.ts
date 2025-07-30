@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { defineSatoriConfig } from 'x-satori/vue'
 
 const _DIRNAME = typeof __dirname !== 'undefined'

@@ -3,8 +3,8 @@
  * Inspiring picocolors(https://www.npmjs.com/package/picocolors)
  */
 
-import tty from 'node:tty'
 import process from 'node:process'
+import tty from 'node:tty'
 
 /**
  * @description: check current is support color command text

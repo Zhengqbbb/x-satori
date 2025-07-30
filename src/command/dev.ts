@@ -1,6 +1,6 @@
 import type { CliOptions } from '../types'
-import { getPathsByOptions, log } from './util'
 import { createServer } from './server'
+import { getPathsByOptions, log } from './util'
 
 export async function startDevServe(
     tempP: string,

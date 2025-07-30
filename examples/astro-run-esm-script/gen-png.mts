@@ -1,9 +1,10 @@
-import { fileURLToPath } from 'node:url'
+import type { SatoriOptions } from 'x-satori/astro'
 import { readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { exit } from 'node:process'
+import { fileURLToPath } from 'node:url'
 import { renderAsync } from '@resvg/resvg-js'
-import { type SatoriOptions, satoriAstro } from 'x-satori/astro'
+import { satoriAstro } from 'x-satori/astro'
 
 (async function () {
     const _DIRNAME = typeof __dirname !== 'undefined'

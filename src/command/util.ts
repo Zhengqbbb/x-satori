@@ -1,8 +1,8 @@
-import process from 'node:process'
-import { resolve } from 'node:path'
-import { existsSync } from 'node:fs'
-import { loadConfigFromFile } from 'vite'
 import type { CliOptions, SatoriOptions } from '../types'
+import { existsSync } from 'node:fs'
+import { resolve } from 'node:path'
+import process from 'node:process'
+import { loadConfigFromFile } from 'vite'
 import { createStyle } from './style'
 
 export function log(type: 'I' | 'W' | 'E', msg: string, help?: string) {

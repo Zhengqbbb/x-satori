@@ -17,11 +17,11 @@ const bgLeftMask = `linear-gradient(to top left , ${backgroundColor} 20% , trans
     <div class="absolute h-full w-full flex">
         <div class="absolute left-0 top-0 h-full w-full flex flex-col">
             {
-                Array(21).fill(null).map(() => (
+                Array.from({ length: 21 }).fill(null).map(() => (
                     <div class="relative h-30px w-full flex flex">
                     <div class="h-30px flex" style={{ backgroundColor }}></div>
                         {
-                            Array(40).fill(null).map(() => (
+                            Array.from({ length: 40 }).fill(null).map(() => (
                                 <div class="h-30px w-30px flex" style={{ backgroundColor, borderTop, borderLeft }}></div>
                             ))
                         }

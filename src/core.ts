@@ -1,10 +1,10 @@
+import type { SatoriOptions } from './types'
 import { readFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
-import satori, { init } from 'satori/wasm'
-import { html } from 'satori-html'
-import initYoga from 'yoga-wasm-web'
 import { dirname, resolve } from 'pathe'
-import type { SatoriOptions } from './types'
+import { html } from 'satori-html'
+import satori, { init } from 'satori/wasm'
+import initYoga from 'yoga-wasm-web'
 
 export async function initEnv() {
     const _dirname = typeof __dirname !== 'undefined'

@@ -11,12 +11,12 @@
     "build:og": "x-satori -t ./Template.astro -c ./config.ts -o image.svg"
   },
   "dependencies": {
-    "astro": "^4.12.2"
+    "astro": "^5.12.5"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
-    "@types/node": "^20.14.12",
-    "tsx": "^4.16.2",
+    "@types/node": "^24.1.0",
+    "tsx": "^4.20.3",
     "x-satori": "^0.2.0"
   }
 }

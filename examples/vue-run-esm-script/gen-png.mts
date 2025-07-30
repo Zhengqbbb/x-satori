@@ -1,9 +1,10 @@
-import { fileURLToPath } from 'node:url'
+import type { SatoriOptions } from 'x-satori/vue'
 import { readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { exit } from 'node:process'
+import { fileURLToPath } from 'node:url'
 import { renderAsync } from '@resvg/resvg-js'
-import { type SatoriOptions, satoriVue } from 'x-satori/vue'
+import { satoriVue } from 'x-satori/vue'
 
 (async function () {
     const _DIRNAME = typeof __dirname !== 'undefined'
