@@ -6,13 +6,13 @@ import { fileURLToPath } from 'node:url'
 import { transform } from '@astrojs/compiler'
 // @ts-expect-error
 import { experimental_AstroContainer as AstroContainer } from 'astro/container'
-import { genSatoriSVG, initEnv } from './core'
+import { genSatoriSVG } from './core'
 
 export { type SatoriOptions }
 export { defineSatoriConfig } from './'
 
 export async function satoriAstro(opts: SatoriOptions, astroTemplateStr: string) {
-    await initEnv()
+    // await initEnv()
 
     const ___dirname = dirname(fileURLToPath(import.meta.url))
     const rawHash = crypto.createHash('md5').update(astroTemplateStr).digest('hex')

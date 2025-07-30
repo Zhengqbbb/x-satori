@@ -11,6 +11,6 @@
     "@types/node": "^24.1.0",
     "jimp": "^1.6.0",
     "vitepress": "^1.6.3",
-    "x-satori": "^0.2.0"
+    "x-satori": "^0.3.0"
   }
 }

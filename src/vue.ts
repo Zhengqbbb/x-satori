@@ -2,13 +2,13 @@ import type { SatoriOptions } from './types'
 import { parse } from '@vue/compiler-sfc'
 import { createSSRApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
-import { genSatoriSVG, initEnv } from './core'
+import { genSatoriSVG } from './core'
 
 export { type SatoriOptions }
 export { defineSatoriConfig } from './'
 
 export async function satoriVue(opts: SatoriOptions, vueTemplateStr: string) {
-    await initEnv()
+    // await initEnv()
 
     const { descriptor } = parse(vueTemplateStr)
     const renderedHtmlStr = await renderToString(

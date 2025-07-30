@@ -7,7 +7,6 @@ catalogs:
     minimist: "^1.2.8"
     satori: "^0.16.2"
     satori-html: "^0.3.2"
-    yoga-wasm-web: "^0.3.3"
   framework:
     astro: "^5.12.5"
     vue: "^3.5.18"
