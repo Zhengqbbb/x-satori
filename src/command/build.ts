@@ -8,6 +8,8 @@ import { getPathsByOptions, getSatoriConfig, log } from './util'
 
 export async function writeStringToStdout(inputString: string): Promise<void> {
     return new Promise((resolve) => {
+        if (!inputString.endsWith('\n'))
+            inputString += '\n'
         let buffer = Buffer.from(inputString)
 
         const rawStream = new Readable({
