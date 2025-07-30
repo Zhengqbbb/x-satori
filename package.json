@@ -82,8 +82,7 @@
     "esbuild": "catalog:core",
     "minimist": "catalog:core",
     "satori": "catalog:core",
-    "satori-html": "catalog:core",
-    "yoga-wasm-web": "catalog:core"
+    "satori-html": "catalog:core"
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:dev",
@@ -92,7 +91,6 @@
     "@types/node": "catalog:dev",
     "astro": "catalog:framework",
     "bumpp": "catalog:dev",
-    "cpx2": "catalog:dev",
     "czg": "catalog:dev",
     "eslint": "catalog:dev",
     "eslint-plugin-astro": "catalog:dev",

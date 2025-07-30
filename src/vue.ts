@@ -8,8 +8,6 @@ export { type SatoriOptions }
 export { defineSatoriConfig } from './'
 
 export async function satoriVue(opts: SatoriOptions, vueTemplateStr: string) {
-    // await initEnv()
-
     const { descriptor } = parse(vueTemplateStr)
     const renderedHtmlStr = await renderToString(
         createSSRApp(

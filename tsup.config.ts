@@ -1,6 +1,3 @@
-// @ts-expect-error
-import { copy } from 'cpx2'
-import { resolve } from 'pathe'
 import { defineConfig } from 'tsup'
 
 export default defineConfig(
@@ -25,13 +22,6 @@ export default defineConfig(
             ],
             outExtension: ({ format }) =>
                 ({ js: format === 'esm' ? '.mjs' : '.cjs' }),
-            onSuccess: async () => {
-                copy(
-                    resolve(__dirname, 'src/yoga.wasm'),
-                    resolve(__dirname, 'dist'),
-                    { force: true },
-                )
-            },
         },
     ],
 )

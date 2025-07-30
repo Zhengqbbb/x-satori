@@ -12,8 +12,6 @@ export { type SatoriOptions }
 export { defineSatoriConfig } from './'
 
 export async function satoriAstro(opts: SatoriOptions, astroTemplateStr: string) {
-    // await initEnv()
-
     const ___dirname = dirname(fileURLToPath(import.meta.url))
     const rawHash = crypto.createHash('md5').update(astroTemplateStr).digest('hex')
     const tmpFile = resolve(
