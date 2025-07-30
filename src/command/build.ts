@@ -4,31 +4,30 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import process from 'node:process'
 import { Readable } from 'node:stream'
+import { pipeline } from 'node:stream/promises'
 import { getPathsByOptions, getSatoriConfig, log } from './util'
 
 export async function writeStringToStdout(inputString: string): Promise<void> {
-    return new Promise((resolve) => {
-        if (!inputString.endsWith('\n'))
-            inputString += '\n'
-        let buffer = Buffer.from(inputString)
+    if (!inputString.endsWith('\n'))
+        inputString += '\n'
 
-        const rawStream = new Readable({
-            read() {
-                if (buffer.length === 0) {
-                    this.push(null)
-                    resolve()
-                }
-                else {
-                    const chunkSize = 1024 // 1KB
-                    const chunk = buffer.subarray(0, chunkSize)
-                    buffer = buffer.subarray(chunkSize)
-                    this.push(chunk)
-                }
-            },
-        })
+    let buffer = Buffer.from(inputString)
 
-        rawStream.pipe(process.stdout)
+    const rawStream = new Readable({
+        read() {
+            if (buffer.length === 0) {
+                this.push(null)
+            }
+            else {
+                const chunkSize = 1024 // 1KB
+                const chunk = buffer.subarray(0, chunkSize)
+                buffer = buffer.subarray(chunkSize)
+                this.push(chunk)
+            }
+        },
     })
+
+    await pipeline(rawStream, process.stdout)
 }
 
 export async function generateSVG(
