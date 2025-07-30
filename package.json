@@ -62,7 +62,7 @@
     "dev": "tsup --watch",
     "build": "tsup",
     "lint": "eslint .",
-    "prepare": "simple-git-hooks && cpx node_modules/yoga-wasm-web/dist/yoga.wasm src",
+    "prepare": "simple-git-hooks",
     "prepack": "run-s lint build",
     "release": "run-s release:bump release:publish",
     "release:bump": "bumpp -y --all -c 'build: :bookmark: publish v%s' -x 'node ./.x-cmd/up-v.js'",
