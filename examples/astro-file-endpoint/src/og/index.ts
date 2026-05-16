@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises'
 
 import { satoriAstro } from 'x-satori/astro'
 import { Resvg } from '@resvg/resvg-js'
-import Jimp from 'jimp'
+import { Jimp, JimpMime } from 'jimp'
 import type { CollectionEntry } from 'astro:content'
 
 const _DIRNAME = import.meta.env?.PROD
@@ -14,10 +14,14 @@ const _DIRNAME = import.meta.env?.PROD
 
 export async function getPostImageBuffer(props: CollectionEntry<'blog'>) {
     const template = await readFile(resolve(_DIRNAME, './Template.astro'), 'utf-8')
-    const config = (await import('./config')).default
-    config.props = {
-        ...config.props,
-        ...props.data,
+    const base = (await import('./config')).default
+    // Default export is a singleton; parallel prerender must not mutate shared `props`.
+    const config = {
+        ...base,
+        props: {
+            ...base.props,
+            ...props.data,
+        },
     }
     const svg = await satoriAstro(config, template)
     const resvg = new Resvg(svg, {
@@ -33,6 +37,5 @@ export async function getPostImageBuffer(props: CollectionEntry<'blog'>) {
     const pngData = resvg.render()
     const pngBuffer = pngData.asPng()
     const image = await Jimp.read(pngBuffer)
-    image.quality(50) // quality: 0-100
-    return await image.getBufferAsync(Jimp.MIME_JPEG)
+    return await image.getBuffer(JimpMime.jpeg, { quality: 50 })
 }

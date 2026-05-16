@@ -4,7 +4,6 @@ import fs from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { transform } from '@astrojs/compiler'
-// @ts-expect-error
 import { experimental_AstroContainer as AstroContainer } from 'astro/container'
 import { genSatoriSVG } from './core'
 
@@ -34,7 +33,8 @@ export async function satoriAstro(opts: SatoriOptions, astroTemplateStr: string)
         fs.mkdirSync(resolve(___dirname, '.tmp'), { recursive: true })
         fs.writeFileSync(tmpFile, jsCode, 'utf-8')
     }
-    const templateComponent = await (await import(tmpFile)).default
+    const templateComponent = await (await import(/* @vite-ignore */ tmpFile))
+        .default
 
     const container = await AstroContainer.create()
     const renderedHtmlStr = await container.renderToString(

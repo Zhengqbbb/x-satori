@@ -9,12 +9,12 @@
     "gen:png": "tsx gen-png.mts"
   },
   "dependencies": {
-    "astro": "^5.12.5"
+    "astro": "^6.3.3"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
-    "@types/node": "^24.1.0",
-    "tsx": "^4.20.3",
+    "@types/node": "^24.12.4",
+    "tsx": "^4.22.0",
     "x-satori": "^0.4.0"
   }
 }

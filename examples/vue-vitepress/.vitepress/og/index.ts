@@ -11,7 +11,7 @@ const _DIRNAME = dirname(fileURLToPath(import.meta.url))
 export async function generateOGImage(siteConfig: SiteConfig) {
     const pages = await createContentLoader('**/*.md', { excerpt: true }).load()
     const template = await readFile(resolve(_DIRNAME, './Template.vue'), 'utf-8')
-    const config = (await import('./config')).default
+    const base = (await import('./config')).default
 
     const _OUTPUT_DIR = resolve(_DIRNAME, '../dist/og')
     return await Promise.all(
@@ -19,10 +19,13 @@ export async function generateOGImage(siteConfig: SiteConfig) {
             if (['/', '404.html'].includes(page.url))
                 return
 
-            config.props = {
-                ...config.props,
-                title: page.frontmatter.title ?? siteConfig.userConfig.title,
-                desc: page.frontmatter.description ?? siteConfig.userConfig.description,
+            const config = {
+                ...base,
+                props: {
+                    ...base.props,
+                    title: page.frontmatter.title ?? siteConfig.userConfig.title,
+                    desc: page.frontmatter.description ?? siteConfig.userConfig.description,
+                },
             }
             const svg = await satoriVue(config, template)
             const resvg = new Resvg(svg, {

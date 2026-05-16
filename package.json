@@ -2,7 +2,7 @@
   "name": "x-satori",
   "type": "module",
   "version": "0.4.0",
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@11.1.2",
   "description": "use Vue or Astro file to generate SVG image using Satori",
   "author": "Q.Ben Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb/)",
   "license": "MIT",
@@ -24,22 +24,22 @@
   "exports": {
     "./*": "./*",
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs"
     },
     "./vue": {
-      "types": "./dist/vue.d.ts",
+      "types": "./dist/vue.d.mts",
       "import": "./dist/vue.mjs"
     },
     "./astro": {
-      "types": "./dist/astro.d.ts",
+      "types": "./dist/astro.d.mts",
       "import": "./dist/astro.mjs"
     },
     "./package.json": "./package.json"
   },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.mts",
   "typesVersions": {
     "*": {
       "*": [
@@ -59,8 +59,8 @@
   },
   "scripts": {
     "x": "x-satori",
-    "dev": "tsup --watch",
-    "build": "tsup",
+    "dev": "tsdown --watch",
+    "build": "tsdown",
     "lint": "eslint .",
     "prepare": "simple-git-hooks",
     "prepack": "run-s lint build",
@@ -99,22 +99,12 @@
     "pathe": "catalog:dev",
     "pnpm": "catalog:dev",
     "simple-git-hooks": "catalog:dev",
-    "tsup": "catalog:dev",
+    "tsdown": "catalog:dev",
     "tsx": "catalog:dev",
     "typescript": "catalog:dev",
     "vite": "catalog:framework",
     "vue": "catalog:framework",
     "x-satori": "workspace:*"
-  },
-  "pnpm": {
-    "overrides": {
-      "x-satori": "workspace:*"
-    },
-    "peerDependencyRules": {
-      "allowedVersions": {
-        "eslint": "9"
-      }
-    }
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged && pnpm lint"

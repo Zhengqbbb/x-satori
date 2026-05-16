@@ -1,21 +1,20 @@
 import { readFile } from 'node:fs/promises'
-import { fileURLToPath } from 'node:url'
-import { dirname, resolve } from 'node:path'
+import { cwd } from 'node:process'
+import { resolve } from 'node:path'
 
 import { defineSatoriConfig } from 'x-satori/astro'
 
 import * as Meta from '../consts' /** @see package.json `pnpm dev:og` => For CLI using a relative path */
 
-const _PUB_DIR = import.meta.env?.PROD
-    ? resolve(dirname(fileURLToPath(import.meta.url)), '../')
-    : resolve(dirname(fileURLToPath(import.meta.url)), '../../public')
+/** Public assets (fonts) — use cwd so paths work in dev and when config is bundled under dist/.prerender */
+const _PUB_DIR = resolve(cwd(), 'public')
 
 export default defineSatoriConfig({
     height: 628,
     width: 1200,
     props: {
         title: Meta.SITE_TITLE,
-        desc: Meta.SITE_DESCRIPTION,
+        description: Meta.SITE_DESCRIPTION,
         site: Meta.SITE,
     },
     fonts: [

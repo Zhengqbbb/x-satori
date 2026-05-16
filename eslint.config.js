@@ -25,4 +25,13 @@ export default antfu(
             'examples/vue-vitepress',
         ],
     },
+    [
+        // `ignores` is path globs only, not rule names. Demo workspaces keep plain semver for degit/copy.
+        {
+            files: ['examples/**/package.json', 'playground/**/package.json'],
+            rules: {
+                'pnpm/json-enforce-catalog': 'off',
+            },
+        },
+    ],
 )

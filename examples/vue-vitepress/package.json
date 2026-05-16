@@ -8,9 +8,9 @@
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
-    "@types/node": "^24.1.0",
-    "jimp": "^1.6.0",
-    "vitepress": "^1.6.3",
+    "@types/node": "^25.8.0",
+    "jimp": "^1.6.1",
+    "vitepress": "^1.6.4",
     "x-satori": "^0.4.0"
   }
 }
