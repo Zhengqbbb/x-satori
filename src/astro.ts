@@ -7,6 +7,20 @@ import { transform } from '@astrojs/compiler'
 import { experimental_AstroContainer as AstroContainer } from 'astro/container'
 import { genSatoriSVG } from './core'
 
+/**
+ * Astro 6 SSR `createAstro` is (props, slots). Older @astrojs/compiler builds may still emit
+ * `$$result.createAstro($$Astro, $$props, $$slots)`; at runtime `$$Astro` is then treated as props,
+ * so props passed from `AstroContainer.renderToString` never reach the component. See Astro’s
+ * createAstro two-arg vs three-arg compatibility notes.
+ */
+function patchLegacyCreateAstroThreeArgCall(jsCode: string): string {
+    // Must use a function replacer: with a string replacement, `$$` becomes one literal `$` (ECMA-262).
+    return jsCode.replace(
+        /\$\$result\.createAstro\(\$\$Astro,\s*\$\$props,\s*\$\$slots\)/g,
+        () => '$$result.createAstro($$props, $$slots)',
+    )
+}
+
 export { type SatoriOptions }
 export { defineSatoriConfig } from './'
 
@@ -16,7 +30,7 @@ export async function satoriAstro(opts: SatoriOptions, astroTemplateStr: string)
     const tmpFile = resolve(
         ___dirname,
         '.tmp',
-        `x-satori-${rawHash}.js`,
+        `x-satori-${rawHash}-createAstro2args.js`,
     )
     if (!fs.existsSync(tmpFile)) {
         const { code: tsCode } = await transform(
@@ -29,7 +43,8 @@ export async function satoriAstro(opts: SatoriOptions, astroTemplateStr: string)
             },
         )
         const { transformSync } = await import('esbuild')
-        const { code: jsCode } = transformSync(tsCode, { loader: 'ts' })
+        let { code: jsCode } = transformSync(tsCode, { loader: 'ts' })
+        jsCode = patchLegacyCreateAstroThreeArgCall(jsCode)
         fs.mkdirSync(resolve(___dirname, '.tmp'), { recursive: true })
         fs.writeFileSync(tmpFile, jsCode, 'utf-8')
     }
